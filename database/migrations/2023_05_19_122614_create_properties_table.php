@@ -16,13 +16,13 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor( PropertyType::class );
+            $table->foreignIdFor( PropertyType::class )->nullable();
             $table->string('name');
             $table->foreignIdFor( Address::class );
-            $table->date('purchase_date');
-            $table->date('move_in_date');
+            $table->date('purchase_date')->nullable();
+            $table->date('move_in_date')->nullable();
             $table->integer('price'); // In pennies
-            $table->date('year_built');
+            $table->date('year_built')->nullable();
             $table->foreignIdFor(User::class );
             $table->timestamps();
         });

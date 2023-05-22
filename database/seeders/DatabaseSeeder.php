@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Property;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,14 +16,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-         \App\Models\User::factory()->create([
+         User::factory()->create([
              'name' => 'Admin',
              'email' => 'admin@myhomehub.com',
          ]);
 
+        $this->call([
+            PropertyTypeSeeder::class,
+        ]);
+
         Property::create([
             'name' => 'Home Base',
-
         ]);
 
     }
