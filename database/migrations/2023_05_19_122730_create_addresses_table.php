@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('town');
             $table->string('county');
             $table->string('postcode');
-            $table->string('country', 2);
+            $table->string('country', 2); // ISO 3166-1 Alpha 2 codes
             $table->boolean('primary')->default(false);
             $table->timestamps();
         });
