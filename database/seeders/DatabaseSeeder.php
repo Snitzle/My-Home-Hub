@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,15 +20,15 @@ class DatabaseSeeder extends Seeder
          User::factory()->create([
              'name' => 'Admin',
              'email' => 'admin@myhomehub.com',
+             'password' => Hash::make('password')
          ]);
 
         $this->call([
             PropertyTypeSeeder::class,
+            PropertySeeder::class
         ]);
 
-        Property::create([
-            'name' => 'Home Base',
-        ]);
+
 
     }
 }

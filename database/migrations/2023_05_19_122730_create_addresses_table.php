@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('address_2')->nullable();
             $table->string('address_3')->nullable();
             $table->string('town');
-            $table->string('county');
+            $table->string('county')->nullable();
             $table->string('postcode');
             $table->string('country', 2); // ISO 3166-1 Alpha 2 codes
             $table->boolean('primary')->default(false);
