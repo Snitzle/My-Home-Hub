@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MortgageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('property',PropertyController::class );
+    Route::resource('mortgage', MortgageController::class );
 
 });
 

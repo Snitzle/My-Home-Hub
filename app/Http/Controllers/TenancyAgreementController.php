@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Property;
+use App\Models\TenancyAgreement;
 use Illuminate\Http\Request;
 
-class PropertyController extends Controller
+class TenancyAgreementController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index( Property $property )
+    public function index()
     {
-        return view('property.index', compact('property') );
+        //
     }
 
     /**
@@ -34,15 +34,15 @@ class PropertyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Property $property)
+    public function show(TenancyAgreement $tenancyAgreement)
     {
-        return view('property.show', compact('property') );
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Property $property)
+    public function edit(TenancyAgreement $tenancyAgreement)
     {
         //
     }
@@ -50,7 +50,7 @@ class PropertyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Property $property)
+    public function update(Request $request, TenancyAgreement $tenancyAgreement)
     {
         //
     }
@@ -58,7 +58,7 @@ class PropertyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Property $property)
+    public function destroy(TenancyAgreement $tenancyAgreement)
     {
         //
     }

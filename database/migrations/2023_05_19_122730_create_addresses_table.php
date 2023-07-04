@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Property;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -14,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor( User::class );
             $table->string('alias');
             $table->string('company')->nullable();
             $table->string('address_1');
@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('postcode');
             $table->string('country', 2); // ISO 3166-1 Alpha 2 codes
             $table->boolean('primary')->default(false);
+            $table->foreignIdFor( Property::class );
             $table->timestamps();
         });
     }

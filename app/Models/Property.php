@@ -12,15 +12,19 @@ class Property extends Model
     protected $guarded = ['id'];
 
     public function address () {
-        $this->hasOne( Address::class );
+        return $this->hasOne( Address::class );
+    }
+
+    public function property_type () {
+        return $this->hasOne( PropertyType::class );
     }
 
     public function boiler () {
-        $this->hasOne( Boiler::class );
+        return $this->hasOne( Boiler::class );
     }
 
     public function evaluations () {
-        $this->hasMany( Evaluation::class );
+        return $this->hasMany( Evaluation::class );
     }
 
 }

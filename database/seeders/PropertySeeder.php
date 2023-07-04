@@ -20,26 +20,9 @@ class PropertySeeder extends Seeder
 
         for ( $i = 1; $i < 10; $i++ ) {
 
-            // Create Address for house
-            // ToDo: Make this rely on a property
-            $address_data = [
-                'user_id' => 1,
-                'alias' => $faker->name,
-                'address_1' => $faker->numberBetween( 0, 400 ) . $faker->streetName,
-                'address_2' => '',
-                'address_3' => '',
-                'town' => $faker->city,
-                'county' => '',
-                'postcode' => $faker->postcode,
-                'country' => $faker->countryCode
-            ];
-
-            $address = Address::create( $address_data );
-
             $property_data = [
                 'property_type_id' => random_int( 1, PropertyType::count() ),
                 'name' => $faker->name,
-                'address_id' => $address->id,
                 'purchase_date' => $faker->date,
                 'move_in_date' => $faker->date,
                 'price' => $faker->numberBetween( 3000000, 200000000 ),
@@ -48,6 +31,21 @@ class PropertySeeder extends Seeder
             ];
 
             $property = Property::create( $property_data );
+
+            $address_data = [
+                'alias' => $faker->name,
+                'company' => $faker->company,
+                'address_1' => $faker->numberBetween( 0, 400 ) . $faker->streetName,
+                'address_2' => '',
+                'address_3' => '',
+                'town' => $faker->city,
+                'county' => '',
+                'postcode' => $faker->postcode,
+                'country' => $faker->countryCode,
+                'property_id' => $property->id
+            ];
+
+            $address = Address::create( $address_data );;
 
         }
 
