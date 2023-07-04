@@ -16,7 +16,29 @@
 {{--    </div>--}}
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-12">
-        <div class="xl:grid grid-cols-3 gap-4">
+
+        <h1 class="mb-4">Properties</h1>
+
+        <div class="grid grid-cols-3 gap-4">
+            @foreach( $properties as $property )
+                <div class="">
+                    <a href="{{ route('property.show', $property->id )  }}" class="">
+                        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="p-6 text-gray-900">
+                                {{ $property->name }}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-12">
+
+        <h1 class="mb-4">Vehicles</h1>
+
+        <div class="grid grid-cols-3 gap-4">
             @foreach( $properties as $property )
                 <div class="">
                     <a href="{{ route('property.show', $property->id )  }}" class="">

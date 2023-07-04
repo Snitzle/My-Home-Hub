@@ -27,4 +27,8 @@ class Property extends Model
         return $this->hasMany( Evaluation::class );
     }
 
+    public function jobs () {
+        return $this->hasMany( Job::class );
+    }
+
 }

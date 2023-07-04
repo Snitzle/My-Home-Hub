@@ -18,7 +18,7 @@ class PropertySeeder extends Seeder
 
         $faker = Factory::create();
 
-        for ( $i = 1; $i < 10; $i++ ) {
+        for ( $i = 1; $i < 6; $i++ ) {
 
             $property_data = [
                 'property_type_id' => random_int( 1, PropertyType::count() ),
@@ -45,7 +45,9 @@ class PropertySeeder extends Seeder
                 'property_id' => $property->id
             ];
 
-            $address = Address::create( $address_data );;
+            $address = Address::create( $address_data );
+
+            // Create Boiler
 
         }
 

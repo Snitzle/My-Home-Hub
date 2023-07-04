@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
 
          User::factory()->create([
              'name' => 'Admin',
@@ -25,7 +24,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             PropertyTypeSeeder::class,
-            PropertySeeder::class
+            PropertySeeder::class,
+            JobSeeder::class
         ]);
 
 
