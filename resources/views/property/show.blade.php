@@ -25,14 +25,18 @@
     {{--        </div>--}}
     {{--    </div>--}}
 
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-12">
-        <div class="grid grid-cols-3 gap-4">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-[1fr,2fr,1fr] gap-4">
 
                 <div class="">
 
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
                         <div class="p-6 text-gray-900">
-                            <h2>Notifications</h2>
+
+                            <h2>Menu</h2>
+
+                            <a href="{{ route( 'job.index', $property->id ) }}">Jobs</a>
+
                         </div>
                     </div>
 
@@ -113,7 +117,7 @@
 
                             <h2>Bills</h2>
 
-                            Loop through bills here
+                            <p>bills go here</p>
 
                         </div>
                     </div>

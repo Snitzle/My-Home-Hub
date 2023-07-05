@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -10,9 +11,13 @@ class JobController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( Property $property )
     {
-        //
+
+        $jobs = Job::where('property_id', $property->id )->get();
+
+        return view('jobs.index', compact('jobs', 'property') );
+
     }
 
     /**

@@ -24,7 +24,7 @@ class JobSeeder extends Seeder
             for ( $i = 0; $i < 20; $i++ ) {
 
                 $job_data = [
-                    'title' => $faker->title,
+                    'title' => $faker->jobTitle,
                     'description' => $faker->text,
                     'price' => random_int(1, 500000),
                     'property_id' => $property->id

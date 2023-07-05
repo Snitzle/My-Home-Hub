@@ -15,7 +15,7 @@
 {{--        </div>--}}
 {{--    </div>--}}
 
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
 
         <h1 class="mb-4">Properties</h1>
 

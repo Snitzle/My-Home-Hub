@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->date('start_date');
-            $table->date('expiry_date');
+            $table->date('renewal_date');
             $table->timestamps();
         });
     }
