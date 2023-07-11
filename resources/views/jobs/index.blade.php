@@ -23,7 +23,7 @@
 
                 <div class="">
                     @foreach( $jobs as $job )
-                        <a href="{{ route( 'job.show', [$property->id, $job->id] ) }}">
+                        <a href="{{ route( 'property.job.show', [$property->id, $job->id] ) }}">
                             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
                                 <div class="p-6 text-gray-900">
                                     {{ $job->title }}
@@ -36,7 +36,9 @@
                 <div class="">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
                         <div class="p-6 text-gray-900">
-
+                             Break down costs for the year here
+                            <h3>Year Total To Date</h3>
+                            <h2>£1000</h2>
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\MortgageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\PropertyJobCommentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,13 +36,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('property',PropertyController::class );
-    Route::resource('mortgage', MortgageController::class );
-//    Route::resource('job', JobController::class );
-
-    Route::get('/property/{property}/jobs', [ JobController::class, 'index' ] )->name('job.index');
-    Route::get('/property/{property_id}/jobs/{job_id}', [ JobController::class, 'show' ] )->name('job.show');
-
+    // These need to be changed to be pluralised
+    Route::resources([
+        'property' => PropertyController::class,
+        'mortgage' => MortgageController::class,
+        'property.job' => JobController::class,
+        'property.job.comment' => PropertyJobCommentController::class
+    ]);
 
 });
 

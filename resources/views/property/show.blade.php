@@ -28,19 +28,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-[1fr,2fr,1fr] gap-4">
 
-                <div class="">
-
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
-                        <div class="p-6 text-gray-900">
-
-                            <h2>Menu</h2>
-
-                            <a href="{{ route( 'job.index', $property->id ) }}">Jobs</a>
-
-                        </div>
-                    </div>
-
-                </div>
+                @include('admin.partials.side-menu')
 
                 <div class="">
 
@@ -60,19 +48,27 @@
 
                             </div>
 
-                            <table>
+                            <table class="w-full">
                                 <tbody>
+
                                     <tr>
-                                        <td class="font-bold">Property Name</td>
-                                        <td>{{ $property->name }}</td>
+                                        <td class="font-bold">Purchase Date</td>
+                                        <td>{{ $property->purchase_date }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold">Move in Date</td>
+                                        <td>{{ $property->move_in_date }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold">Purchase Price</td>
+                                        <td>{{ '£' . number_format( ( $property->price / 100 ), 2 ) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-bold">Year Built</td>
+                                        <td>{{ $property->year_built }}</td>
                                     </tr>
                                 </tbody>
                             </table>
-
-                            <p>{{ $property->purchase_date }}</p>
-                            <p>{{ $property->move_in_date }}</p>
-                            <p>{{ $property->price }}</p>
-                            <p>{{ $property->year_built }}</p>
 
                         </div>
                     </div>
