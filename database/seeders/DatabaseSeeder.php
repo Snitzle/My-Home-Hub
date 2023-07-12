@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PropertyTypeSeeder::class,
             PropertySeeder::class,
+            VehicleSeeder::class,
             JobSeeder::class
         ]);
 

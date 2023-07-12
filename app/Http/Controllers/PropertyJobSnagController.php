@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehicle;
+use App\Models\PropertyJobSnag;
 use Illuminate\Http\Request;
 
-class VehicleController extends Controller
+class PropertyJobSnagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,15 +34,15 @@ class VehicleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Vehicle $vehicle)
+    public function show(PropertyJobSnag $propertyJobSnag)
     {
-        return view('vehicle.show', compact('vehicle'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Vehicle $vehicle)
+    public function edit(PropertyJobSnag $propertyJobSnag)
     {
         //
     }
@@ -50,7 +50,7 @@ class VehicleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(Request $request, PropertyJobSnag $propertyJobSnag)
     {
         //
     }
@@ -58,7 +58,7 @@ class VehicleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy(PropertyJobSnag $propertyJobSnag)
     {
         //
     }

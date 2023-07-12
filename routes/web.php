@@ -5,6 +5,7 @@ use App\Http\Controllers\MortgageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyJobCommentController;
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +42,8 @@ Route::middleware('auth')->group(function () {
         'property' => PropertyController::class,
         'mortgage' => MortgageController::class,
         'property.job' => JobController::class,
-        'property.job.comment' => PropertyJobCommentController::class
+        'property.job.comment' => PropertyJobCommentController::class,
+        'vehicle' => VehicleController::class
     ]);
 
 });

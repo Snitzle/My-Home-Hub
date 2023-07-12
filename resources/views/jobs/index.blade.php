@@ -7,9 +7,9 @@
 
             <div class="">
 
-{{--                <a href="{{ route('property.edit', $property->id ) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">--}}
-{{--                    Update--}}
-{{--                </a>--}}
+                <a href="{{ route('property.show', $property->id ) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    Back to Property
+                </a>
 
             </div>
         </div>
