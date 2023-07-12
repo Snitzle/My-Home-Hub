@@ -11,12 +11,17 @@ class Property extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'purchase_date' => 'datetime',
+        'move_in_date' => 'datetime',
+    ];
+
     public function address () {
         return $this->hasOne( Address::class );
     }
 
     public function property_type () {
-        return $this->hasOne( PropertyType::class );
+        return $this->belongsTo( PropertyType::class );
     }
 
     public function boiler () {

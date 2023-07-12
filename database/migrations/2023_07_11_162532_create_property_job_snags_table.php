@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('property_job_snags', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(Job::class);
+            $table->string('title');
+            $table->text('content');
+            $table->boolean('resolved');
             $table->timestamps();
         });
     }

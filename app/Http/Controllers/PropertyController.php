@@ -52,7 +52,21 @@ class PropertyController extends Controller
      */
     public function update(Request $request, Property $property)
     {
-        //
+
+        $validated = $request->validate([
+            'name' => 'string',
+            'purchase_date' => 'date',
+            'move_in_date' => 'date',
+            'price' => 'integer',
+            'year_built' => 'date_format:Y'
+        ],[
+            'price.integer' => 'Price must be a whole number. Please input price without the currency symbol, commas or full stops'
+        ]);
+
+        $property->update( $validated );
+
+        return back();
+
     }
 
     /**

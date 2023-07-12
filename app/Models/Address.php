@@ -10,6 +10,8 @@ class Address extends Model
 
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function property () {
         return $this->belongsTo( Property::class );
     }

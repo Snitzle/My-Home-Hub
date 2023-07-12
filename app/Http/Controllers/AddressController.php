@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\Property;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
@@ -34,7 +35,7 @@ class AddressController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Address $address)
+    public function show(Property $property, Address $address)
     {
         //
     }
@@ -50,9 +51,25 @@ class AddressController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Address $address)
+    public function update( Request $request, Property $property, Address $address )
     {
-        //
+
+        $validated = $request->validate([
+            'alias' => 'string',
+            'company' => 'string',
+            'address_1' => 'string',
+            'address_2' => 'nullable|string',
+            'address_3' => 'nullable|string',
+            'town' => 'string',
+            'county' => 'nullable|string',
+            'postcode' => 'string',
+            'country' => 'string',
+        ]);
+
+        $address->update( $validated );
+
+        return back();
+
     }
 
     /**

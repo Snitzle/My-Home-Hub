@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MortgageController;
 use App\Http\Controllers\ProfileController;
@@ -23,15 +24,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+Route::middleware(['auth', 'verified'] )->group(function () {
 
-    $properties = auth()->user()->properties;
+    Route::get('/dashboard', function () {
 
-    return view('dashboard', compact('properties'));
+        return view('dashboard' );
 
-})->middleware(['auth', 'verified'])->name('dashboard');
+    })->name('dashboard');
 
-Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::resources([
         'property' => PropertyController::class,
         'mortgage' => MortgageController::class,
+        'property.address' => AddressController::class,
         'property.job' => JobController::class,
         'property.job.comment' => PropertyJobCommentController::class,
         'vehicle' => VehicleController::class

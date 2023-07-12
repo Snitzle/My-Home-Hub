@@ -14,9 +14,12 @@ I've been made aware that Job is not a good name to use in a model because of th
 - Add Breadcrumbs
 - Add Start and end date to Property Jobs
 - Add Property Job start and end date to seeder
-- Write Vehicle Seeder
 - Define partial resources so only the routes I need are in use
-
+- Add reminder functionality to Property Jobs
+- Refactor jobs as Tasks
+- Refactor Inputs to use built in Breeze components ( Is this actually better? )
+- Hash everything so I can't see private details in the database
+- Add Logic to process prices. Decide on a definite set of rules for input
 
 
 ### To Create
@@ -27,3 +30,9 @@ I've been made aware that Job is not a good name to use in a model because of th
 
 - implement Roles and permissions once basic models and logic are inplemented
 - Consider security, how am I going to store this data securely
+
+
+### Testing 
+
+- Changing options saves 
+- Changing options effects said option e.g. notification frequency

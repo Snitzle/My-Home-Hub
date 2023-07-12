@@ -1,9 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __($property->address->address_1 ) }}
-            </h2>
+
+            @include('property.partials.title')
 
             <div class="">
 
@@ -53,12 +52,16 @@
                             <tbody>
 
                             <tr>
+                                <td class="font-bold">Property Type</td>
+                                <td>{{ $property->property_type->name }}</td>
+                            </tr>
+                            <tr>
                                 <td class="font-bold">Purchase Date</td>
-                                <td>{{ $property->purchase_date }}</td>
+                                <td>{{ $property->purchase_date->format('d/m/Y') }}</td>
                             </tr>
                             <tr>
                                 <td class="font-bold">Move in Date</td>
-                                <td>{{ $property->move_in_date }}</td>
+                                <td>{{ $property->move_in_date->format('d/m/Y') }}</td>
                             </tr>
                             <tr>
                                 <td class="font-bold">Purchase Price</td>
