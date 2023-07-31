@@ -40,7 +40,7 @@ Route::middleware(['auth', 'verified'] )->group(function () {
     // These need to be changed to be pluralised
     Route::resources([
         'property' => PropertyController::class,
-        'mortgage' => MortgageController::class,
+        'property.mortgage' => MortgageController::class,
         'property.address' => AddressController::class,
         'property.job' => JobController::class,
         'property.job.comment' => PropertyJobCommentController::class,

@@ -6,6 +6,13 @@
 
             <div class="">
 
+                @if ( is_null( $property->mortage ) )
+                    <a href="{{ route('property.mortgage.create', $property ) }}"
+                       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">
+                        Add Mortgage
+                    </a>
+                @endif
+
                 <a href="{{ route('property.edit', $property->id ) }}"
                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Update
@@ -15,18 +22,8 @@
         </div>
     </x-slot>
 
-    {{--    <div class="py-12">--}}
-    {{--        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">--}}
-    {{--            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">--}}
-    {{--                <div class="p-6 text-gray-900">--}}
-    {{--                    {{ __("You're logged in!") }}--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-[1fr,2fr,1fr] gap-4">
+        <div class="grid grid-cols-[1fr,3fr,2fr] gap-4">
 
             @include('admin.partials.property-side-menu')
 
@@ -50,27 +47,26 @@
 
                         <table class="w-full">
                             <tbody>
-
-                            <tr>
-                                <td class="font-bold">Property Type</td>
-                                <td>{{ $property->property_type->name }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold">Purchase Date</td>
-                                <td>{{ $property->purchase_date->format('d/m/Y') }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold">Move in Date</td>
-                                <td>{{ $property->move_in_date->format('d/m/Y') }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold">Purchase Price</td>
-                                <td>{{ '£' . number_format( ( $property->price / 100 ), 2 ) }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold">Year Built</td>
-                                <td>{{ $property->year_built }}</td>
-                            </tr>
+                                <tr>
+                                    <td class="font-bold">Property Type</td>
+                                    <td>{{ $property->property_type->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Purchase Date</td>
+                                    <td>{{ $property->purchase_date->format('d/m/Y') }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Move in Date</td>
+                                    <td>{{ $property->move_in_date->format('d/m/Y') }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Purchase Price</td>
+                                    <td>{{ '£' . number_format( ( $property->price / 100 ), 2 ) }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Year Built</td>
+                                    <td>{{ $property->year_built }}</td>
+                                </tr>
                             </tbody>
                         </table>
 
@@ -82,15 +78,46 @@
 
                         <h2>Address</h2>
 
-                        <p>{{ $property->address->alias }}</p>
-                        <p>{{ $property->address->company }}</p>
-                        <p>{{ $property->address->address_1 }}</p>
-                        <p>{{ $property->address->address_2 }}</p>
-                        <p>{{ $property->address->address_3 }}</p>
-                        <p>{{ $property->address->town }}</p>
-                        <p>{{ $property->address->county }}</p>
-                        <p>{{ $property->address->postcode }}</p>
-                        <p>{{ $property->address->country }}</p>
+                        <table class="w-full">
+                            <tbody>
+                                <tr>
+                                    <td class="font-bold">Alias</td>
+                                    <td>{{ $property->address->alias }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Company</td>
+                                    <td>{{ $property->address->company }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">address_1</td>
+                                    <td>{{ $property->address->address_1 }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">address_2</td>
+                                    <td>{{ $property->address->address_2 }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">address_3</td>
+                                    <td>{{ $property->address->address_3 }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Town</td>
+                                    <td>{{ $property->address->town }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">County</td>
+                                    <td>{{ $property->address->county }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Postcode</td>
+                                    <td>{{ $property->address->postcode }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="font-bold">Country</td>
+                                    <td>{{ $property->address->country }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                     </div>
                 </div>
@@ -103,7 +130,12 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
                     <div class="p-6 text-gray-900">
 
-                        <h2>Mortgage</h2>
+                        <h2 class="flex items-center justify-between">
+                            Mortgage
+                            <small>
+{{--                                {{ route( 'property.mortgage.show', [ $property->id, $property->mortgage->id ] ) }}--}}
+                            </small>
+                        </h2>
 
                         <p class="text-3xl font-bold">
                             £480 pm

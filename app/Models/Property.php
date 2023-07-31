@@ -28,6 +28,10 @@ class Property extends Model
         return $this->hasOne( Boiler::class );
     }
 
+    public function mortgage() {
+        return $this->hasOne( Mortgage::class );
+    }
+
     public function evaluations () {
         return $this->hasMany( Evaluation::class );
     }

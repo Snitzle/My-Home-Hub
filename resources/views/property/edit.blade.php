@@ -16,7 +16,7 @@
 
     </x-slot>
 
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
         <div class="">
 
             @if( $errors->any())
@@ -47,6 +47,20 @@
                                                       value="{{ $property->name }}" />
 
                                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
+                                    </div>
+
+                                    <div class="w-full">
+
+                                        <x-input-label for="name" :value="__('Name')" />
+
+                                        <select name="property_type" id="" class="input-control">
+                                            @foreach( $property_types as $type )
+                                                <option value="{{ $type->id }}">
+                                                    {{ $type->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
 
                                     </div>
 

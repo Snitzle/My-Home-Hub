@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Property;
+use App\Models\PropertyType;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -44,7 +45,9 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
-        return view('property.edit', compact('property') );
+        $property_types = PropertyType::all();
+
+        return view('property.edit', compact('property', 'property_types') );
     }
 
     /**

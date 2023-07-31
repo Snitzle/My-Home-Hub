@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mortgage extends Model
+class PropertyMortgageRateType extends Model
 {
     use HasFactory;
 
-    public function type () {
-        return $this->hasOne( PropertyMortgageRateType::class );
-    }
+    protected $guarded = ['id'];
 
 }

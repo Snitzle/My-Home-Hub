@@ -15,7 +15,7 @@
     {{--        </div>--}}
     {{--    </div>--}}
 
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
         <div class="xl:grid grid-cols-3 gap-4">
             @foreach( $properties as $property )
                 <div class="">
