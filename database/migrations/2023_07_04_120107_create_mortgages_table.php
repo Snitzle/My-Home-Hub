@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignIdFor( PropertyMortgageRateType::class );
             $table->integer('term_length');
             $table->date('start_date');
-            $table->boolean('archived');
+            $table->boolean('archived')->default(FALSE);
             // Using the spatie model there are also uploads for files like Surveys
             $table->timestamps();
         });

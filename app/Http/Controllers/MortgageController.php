@@ -38,8 +38,6 @@ class MortgageController extends Controller
 
         $mortgage = Mortgage::create( $validated );
 
-        $mortgage::update(['property_id' => $property->id ]);
-
         return response()->redirectToRoute('property.show', $property );
 
     }
@@ -47,17 +45,27 @@ class MortgageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Mortgage $mortgage)
+    public function show( Property $property, Mortgage $mortgage)
     {
-        return view('');
+
+        $mortgage_types = PropertyMortgageRateType::all();
+
+        return view('property.mortgage.show', compact('property', 'mortgage', 'mortgage_types' ));
+
+//        return view('property.mortgage.show', compact('property', 'mortgage', 'mortgage_types' ) );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Mortgage $mortgage)
+    public function edit( Property $property, Mortgage $mortgage)
     {
-        //
+
+        $mortgage_types = PropertyMortgageRateType::all();
+
+        $property_survey = $mortgage->getMedia('property_surveys')->first() ?? null;
+
+        return view('property.mortgage.edit', compact( 'property', 'mortgage', 'mortgage_types', 'property_survey' ) );
     }
 
     /**
@@ -75,4 +83,20 @@ class MortgageController extends Controller
     {
         //
     }
+
+    // If I want to be completely CRUDDY these files could have their own models but I'd rather not
+    public function upload_property_survey ( Request $request, Property $property, Mortgage $mortgage ) {
+
+        $validated = $request->validate([
+            'property_survey' => 'required|mimes:pdf|max:20480'
+        ]);
+
+        $file_path = $request->file('property_survey')->getRealPath();
+
+        $mortgage->addMedia( $file_path )->toMediaCollection('property_surveys');
+
+        return response()->redirectToRoute('property.mortgage.edit', [ $property, $mortgage ]);
+
+    }
+
 }

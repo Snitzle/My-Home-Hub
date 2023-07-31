@@ -11,7 +11,7 @@ class StoreMortgageRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,11 +22,13 @@ class StoreMortgageRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'property_id' => 'required',
             'monthly_payment' => 'required|numeric',
-            'mortgage_type' => 'required|exists:property_mortgage_rate_types,id',
+            'property_mortgage_rate_type_id' => 'required|exists:property_mortgage_rate_types,id',
             'interest_rate' => 'required|numeric',
             'term_length' => 'required|integer',
-            'start_date' => 'required|date'
+            'start_date' => 'required|date',
+            'archived' => 'boolean'
         ];
     }
 }

@@ -47,6 +47,8 @@ Route::middleware(['auth', 'verified'] )->group(function () {
         'vehicle' => VehicleController::class
     ]);
 
+    Route::post('/property/{property}/mortgage/{mortgage}/upload-property-survey', [MortgageController::class, 'upload_property_survey' ])->name('property.mortgage.survey.upload');
+
 });
 
 require __DIR__.'/auth.php';

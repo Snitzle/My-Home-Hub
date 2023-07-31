@@ -11,4 +11,8 @@ class PropertyMortgageRateType extends Model
 
     protected $guarded = ['id'];
 
+    public function mortgages() {
+        return $this->belongsToMany( Mortgage::class );
+    }
+
 }

@@ -5,8 +5,7 @@
             @include('property.partials.title')
 
             <div class="">
-
-                @if ( is_null( $property->mortage ) )
+                @if ( is_null( $property->mortgage ) )
                     <a href="{{ route('property.mortgage.create', $property ) }}"
                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">
                         Add Mortgage
@@ -80,42 +79,70 @@
 
                         <table class="w-full">
                             <tbody>
+                                @if( $property->address->alias )
                                 <tr>
                                     <td class="font-bold">Alias</td>
                                     <td>{{ $property->address->alias }}</td>
                                 </tr>
-                                <tr>
-                                    <td class="font-bold">Company</td>
-                                    <td>{{ $property->address->company }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">address_1</td>
-                                    <td>{{ $property->address->address_1 }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">address_2</td>
-                                    <td>{{ $property->address->address_2 }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">address_3</td>
-                                    <td>{{ $property->address->address_3 }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Town</td>
-                                    <td>{{ $property->address->town }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">County</td>
-                                    <td>{{ $property->address->county }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Postcode</td>
-                                    <td>{{ $property->address->postcode }}</td>
-                                </tr>
-                                <tr>
-                                    <td class="font-bold">Country</td>
-                                    <td>{{ $property->address->country }}</td>
-                                </tr>
+                                @endif
+
+                                @if( $property->address->company )
+                                    <tr>
+                                        <td class="font-bold">Company</td>
+                                        <td>{{ $property->address->company }}</td>
+                                    </tr>
+                                @endif
+
+                                @if( $property->address->address_1 )
+                                    <tr>
+                                        <td class="font-bold">Address 1</td>
+                                        <td>{{ $property->address->address_1 }}</td>
+                                    </tr>
+                                @endif
+
+                                @if( $property->address->address_2 )
+                                    <tr>
+                                        <td class="font-bold">Address 2</td>
+                                        <td>{{ $property->address->address_2 }}</td>
+                                    </tr>
+                                @endif
+
+                                @if( $property->address->address_3 )
+                                    <tr>
+                                        <td class="font-bold">Address 3</td>
+                                        <td>{{ $property->address->address_3 }}</td>
+                                    </tr>
+                                @endif
+
+                                @if( $property->address->town )
+                                    <tr>
+                                        <td class="font-bold">Town</td>
+                                        <td>{{ $property->address->town }}</td>
+                                    </tr>
+                                @endif
+
+                                @if( $property->address->county )
+                                    <tr>
+                                        <td class="font-bold">County</td>
+                                        <td>{{ $property->address->county }}</td>
+                                    </tr>
+                                @endif
+
+                                @if( $property->address->postcode )
+                                    <tr>
+                                        <td class="font-bold">Postcode</td>
+                                        <td>{{ $property->address->postcode }}</td>
+                                    </tr>
+                                @endif
+
+                                @if( $property->address->country )
+                                    <tr>
+                                        <td class="font-bold">Country</td>
+                                        <td>{{ $property->address->country }}</td>
+                                    </tr>
+                                @endif
+
+
                             </tbody>
                         </table>
 
@@ -133,12 +160,21 @@
                         <h2 class="flex items-center justify-between">
                             Mortgage
                             <small>
-{{--                                {{ route( 'property.mortgage.show', [ $property->id, $property->mortgage->id ] ) }}--}}
+
+                                <a href="{{ route( 'property.mortgage.show', [ $property->id, $property->mortgage->id ] ) }}"
+                                    class="mr-4">
+                                    View
+                                </a>
+
+                                <a href="{{ route( 'property.mortgage.edit', [ $property->id, $property->mortgage->id ] ) }}">
+                                    Update
+                                </a>
+
                             </small>
                         </h2>
 
                         <p class="text-3xl font-bold">
-                            £480 pm
+                            {{ '£' . number_format( $property->mortgage->monthly_payment, 2 ) }} pcm
                         </p>
 
                     </div>

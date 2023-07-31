@@ -1,142 +1,134 @@
 <x-app-layout>
     <x-slot name="header">
+
         <div class="flex justify-between items-center">
 
             @include('property.partials.title')
 
             <div class="">
 
-                <a href="{{ route('property.edit', $property->id ) }}"
-                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Update
+                <a href="{{ route('property.show', $property->id  ) }}" id="job-update__submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Back to Property
                 </a>
 
             </div>
         </div>
+
     </x-slot>
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-[1fr,3fr,2fr] gap-4">
+        <div class="">
 
-            @include('admin.partials.property-side-menu')
+            @if( $errors->any())
+                @foreach ( $errors->all() as $error)
+                    <div>{{ $error }}</div>
+                @endforeach
+            @endif
 
             <div class="">
+                <div class="">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 text-gray-900">
 
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
-                    <div class="p-6 text-gray-900">
+                            <form action="{{ route( 'property.mortgage.store', $property->id ) }}" method="POST">
 
-                        <div class="">
+                                @csrf
 
-                            <h2 class="justify-between items-center flex w-full">
-                                Property Details
-                                <a href="{{ route('property.edit', $property->id) }}">
-                                    <small>
-                                        Edit
-                                    </small>
-                                </a>
-                            </h2>
+                                <input type="text" name="property_id" value="{{ $property->id }}" hidden >
+
+                                <div class="flex flex-wrap">
+
+                                    <div class="w-full">
+
+                                        <x-input-label for="monthly_payment" :value="__('Monthly Payment')" />
+
+                                        <x-text-input id="monthly_payment"
+                                                      class="block mt-1 w-full"
+                                                      name="monthly_payment"
+                                                      value="{{ old('monthly_payment') ?? '' }}" />
+
+                                        <x-input-error :messages="$errors->get('monthly_payment')" class="mt-2" />
+
+                                    </div>
+
+                                    <div class="w-full">
+
+                                        <x-input-label for="name" :value="__('Mortgage Type')" />
+
+                                        <select name="property_mortgage_rate_type_id" id="" class="input-control">
+                                            @foreach( $mortgage_types as $type )
+                                                <option value="{{ $type->id }}">
+                                                    {{ $type->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+
+                                    </div>
+
+                                    <div class="w-full">
+
+                                        <x-input-label for="interest_rate" :value="__('Interest Rate')" />
+
+                                        <x-text-input id="interest_rate"
+                                                      class="block mt-1 w-full"
+                                                      name="interest_rate"
+                                                      value="" />
+
+                                        <x-input-error :messages="$errors->get('interest_rate')" class="mt-2" />
+
+                                    </div>
+
+                                    <div class="w-full">
+
+                                        <x-input-label for="term_length" :value="__('Term Length')" />
+
+                                        <x-text-input id="term_length"
+                                                      class="block mt-1 w-full"
+                                                      name="term_length"
+                                                      value="" />
+
+                                        <x-input-error :messages="$errors->get('term_length')" class="mt-2" />
+
+                                    </div>
+
+
+
+                                    <div class="w-full ">
+
+                                        <x-input-label for="start_date" :value="__('Start Date')" />
+
+                                        <x-text-input id="start_date"
+                                                      type="date"
+                                                      class="block mt-1 w-full"
+                                                      name="start_date"
+                                                      value="" />
+
+                                        <x-input-error :messages="$errors->get('start_date')" class="mt-2" />
+
+                                    </div>
+
+                                </div>
+
+                                <x-primary-button>
+                                    Update
+                                </x-primary-button>
+
+                            </form>
 
                         </div>
-
-                        <table class="w-full">
-                            <tbody>
-                            <tr>
-                                <td class="font-bold">Property Type</td>
-                                <td>{{ $property->property_type->name }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold">Purchase Date</td>
-                                <td>{{ $property->purchase_date->format('d/m/Y') }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold">Move in Date</td>
-                                <td>{{ $property->move_in_date->format('d/m/Y') }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold">Purchase Price</td>
-                                <td>{{ '£' . number_format( ( $property->price / 100 ), 2 ) }}</td>
-                            </tr>
-                            <tr>
-                                <td class="font-bold">Year Built</td>
-                                <td>{{ $property->year_built }}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
                     </div>
                 </div>
 
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">
+                <div class="">
 
 
-
-
-                    </div>
                 </div>
-
 
             </div>
-
-            <div class="">
-
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
-                    <div class="p-6 text-gray-900">
-
-                        <h2>Mortgage</h2>
-
-                        <p class="text-3xl font-bold">
-                            £480 pm
-                        </p>
-
-                    </div>
-                </div>
-
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
-                    <div class="p-6 text-gray-900">
-
-                        <h2>Bills</h2>
-
-                        <p>bills go here</p>
-
-                    </div>
-                </div>
-
-
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
-                    <div class="p-6 text-gray-900">
-
-                        <h2>Subscriptions</h2>
-
-                        Loop through subscriptions here
-
-                    </div>
-                </div>
-
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
-                    <div class="p-6 text-gray-900">
-
-                        <h2>Boiler</h2>
-
-                        <p>Put boiler stats here</p>
-
-                    </div>
-                </div>
-
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">
-
-                        <h2>Bin Days</h2>
-
-                        <p>Put bin day information here</p>
-
-                    </div>
-                </div>
-            </div>
-
 
         </div>
     </div>
+
 
 
 </x-app-layout>
