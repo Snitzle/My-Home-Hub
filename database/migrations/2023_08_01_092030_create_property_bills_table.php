@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('property_bills', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor( Property::class );
-            $table->string('name');
+            $table->string('title');
             $table->integer('price');
             $table->text('description')->nullable();
             $table->date('bill_date');

@@ -28,9 +28,9 @@ class PropertyBillController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create( Request $request, Property $property )
     {
-        //
+        return view('property.bills.create', compact('property'));
     }
 
     /**

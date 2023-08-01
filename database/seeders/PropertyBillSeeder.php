@@ -18,19 +18,19 @@ class PropertyBillSeeder extends Seeder
         $bills = [
             [
                 'property_id' => 1,
-                'name' => 'Gas',
+                'title' => 'Gas',
                 'price' => 7000,
                 'description' => 'This is a bill description',
                 'bill_date' => Carbon::now()->format('Y-m-d')
             ],[
                 'property_id' => 1,
-                'name' => 'Electric',
+                'title' => 'Electric',
                 'price' => 4500,
                 'description' => 'This is a bill description',
                 'bill_date' => Carbon::now()->format('Y-m-d')
             ],[
                 'property_id' => 1,
-                'name' => 'Council Tax',
+                'title' => 'Council Tax',
                 'price' => 15000,
                 'description' => 'This is a bill description',
                 'bill_date' => Carbon::now()->format('Y-m-d')
