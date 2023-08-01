@@ -10,7 +10,7 @@
                     <a href="{{ route( 'property.job.index', $property->id ) }}">Jobs</a>
                 </li>
                 <li>
-                    <a href="{{ route( 'property.job.index', $property->id ) }}">Bills</a>
+                    <a href="{{ route( 'property.bill.index', $property->id ) }}">Bills</a>
                 </li>
                 <li>
                     <a href="{{ route( 'property.job.index', $property->id ) }}">Subscriptions</a>

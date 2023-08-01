@@ -22,10 +22,12 @@ I've been made aware that Job is not a good name to use in a model because of th
 - Add Logic to process prices. Decide on a definite set of rules for input
 - Make it so that you can see all previous Mortgages applies to a house. Refactor the model. Add active to the migration
 - Add a Mortgage Seeder
-- Add logic to delete Mortgage Files
 - Fix validation on the property edit
 - Add styling to form errors
 - Add filenames to mortgage files
+- Add a Contents section where things that we own can be uploaded in even of fire for theft
+- Add logic to complete Jobs
+- Write reports for Rosh
 
 ### To Create
 

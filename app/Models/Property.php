@@ -44,4 +44,8 @@ class Property extends Model
         return $this->hasMany( Job::class );
     }
 
+    public function bills () {
+        return $this->hasMany( PropertyBill::class );
+    }
+
 }

@@ -157,25 +157,33 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
                     <div class="p-6 text-gray-900">
 
-                        <h2 class="flex items-center justify-between">
-                            Mortgage
-                            <small>
+                        @if ( !is_null( $property->mortgage ) )
 
-                                <a href="{{ route( 'property.mortgage.show', [ $property->id, $property->mortgage->id ] ) }}"
-                                    class="mr-4">
-                                    View
-                                </a>
+                            <h2 class="flex items-center justify-between">
+                                Mortgage
+                                <small>
+                                        <a href="{{ route( 'property.mortgage.show', [ $property->id, $property->mortgage->id ] ) }}"
+                                            class="mr-4">
+                                            View
+                                        </a>
 
-                                <a href="{{ route( 'property.mortgage.edit', [ $property->id, $property->mortgage->id ] ) }}">
-                                    Update
-                                </a>
+                                        <a href="{{ route( 'property.mortgage.edit', [ $property->id, $property->mortgage->id ] ) }}">
+                                            Update
+                                        </a>
+                                </small>
+                            </h2>
 
-                            </small>
-                        </h2>
+                            <p class="text-3xl font-bold">
+                                {{ '£' . number_format( $property->mortgage->monthly_payment, 2 ) }} pcm
+                            </p>
 
-                        <p class="text-3xl font-bold">
-                            {{ '£' . number_format( $property->mortgage->monthly_payment, 2 ) }} pcm
-                        </p>
+                        @else
+
+                            <h2 class="flex items-center justify-between">
+                                Add a Mortgage
+                            </h2>
+
+                        @endif
 
                     </div>
                 </div>
@@ -183,9 +191,22 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
                     <div class="p-6 text-gray-900">
 
-                        <h2>Bills</h2>
+                        @if( !is_null( $property->bills ) )
 
-                        <p>bills go here</p>
+                            <h2 class="flex justify-between">
+                                Bills
+                                <small>
+                                    <a href="{{ route('property.bill.index', $property ) }}">View</a>
+                                </small>
+                            </h2>
+
+                            <p>{{ '£' . number_format( $total_bill_cost / 100 , 2 ) }}</p>
+
+                        @else
+
+                            <h2>Add Bills</h2>
+
+                        @endif
 
                     </div>
                 </div>

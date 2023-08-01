@@ -4,6 +4,7 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MortgageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PropertyBillController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyJobCommentController;
 use App\Http\Controllers\VehicleController;
@@ -42,6 +43,7 @@ Route::middleware(['auth', 'verified'] )->group(function () {
         'property' => PropertyController::class,
         'property.mortgage' => MortgageController::class,
         'property.address' => AddressController::class,
+        'property.bill' => PropertyBillController::class,
         'property.job' => JobController::class,
         'property.job.comment' => PropertyJobCommentController::class,
         'vehicle' => VehicleController::class

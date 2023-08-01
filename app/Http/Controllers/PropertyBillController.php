@@ -2,17 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bill;
+use App\Models\Property;
+use App\Models\PropertyBill;
 use Illuminate\Http\Request;
 
-class BillController extends Controller
+class PropertyBillController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( Request $request, Property $property )
     {
-        //
+
+        $total_bill_cost = 0;
+
+        foreach ( $property->bills as $bill ) {
+
+            $total_bill_cost += $bill->price;
+
+        }
+
+        return view('property.bills.index', compact( 'property', 'total_bill_cost' ));
     }
 
     /**
@@ -34,15 +44,15 @@ class BillController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Bill $bill)
+    public function show( Request $request, Property $property, PropertyBill $bill )
     {
-        //
+        return view('property.bills.show', compact('property', 'bill') );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Bill $bill)
+    public function edit(PropertyBill $propertyBill)
     {
         //
     }
@@ -50,7 +60,7 @@ class BillController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Bill $bill)
+    public function update(Request $request, PropertyBill $propertyBill)
     {
         //
     }
@@ -58,7 +68,7 @@ class BillController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Bill $bill)
+    public function destroy(PropertyBill $propertyBill)
     {
         //
     }

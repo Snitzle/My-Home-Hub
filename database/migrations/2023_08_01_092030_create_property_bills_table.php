@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Property;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,12 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bills', function (Blueprint $table) {
+        Schema::create('property_bills', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor( Property::class );
             $table->string('name');
             $table->integer('price');
-            $table->date('start_date');
-            $table->date('renewal_date');
+            $table->text('description')->nullable();
+            $table->date('bill_date');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bills');
+        Schema::dropIfExists('property_bills');
     }
 };

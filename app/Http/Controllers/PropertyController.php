@@ -37,7 +37,16 @@ class PropertyController extends Controller
      */
     public function show(Property $property)
     {
-        return view('property.show', compact('property') );
+
+        $total_bill_cost = 0;
+
+        foreach ( $property->bills as $bill ) {
+
+            $total_bill_cost += $bill->price;
+
+        }
+
+        return view('property.show', compact('property', 'total_bill_cost' ) );
     }
 
     /**
