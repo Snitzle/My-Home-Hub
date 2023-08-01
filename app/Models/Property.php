@@ -16,6 +16,10 @@ class Property extends Model
         'move_in_date' => 'datetime',
     ];
 
+    public function user() {
+        return $this->belongsTo( User::class, 'id' );
+    }
+
     public function address () {
         return $this->hasOne( Address::class );
     }

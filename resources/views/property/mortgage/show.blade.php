@@ -25,14 +25,11 @@
                 @endforeach
             @endif
 
-            <div class="">
+            <div class="grid grid-cols-[2fr,1fr] gap-4">
+
                 <div class="">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900">
-
-                            <form action="{{ route( 'property.mortgage.store', $property->id ) }}" method="POST">
-
-                                @csrf
 
                                 <input type="text" name="property_id" value="{{ $property->id }}" hidden >
 
@@ -45,7 +42,9 @@
                                         <x-text-input id="monthly_payment"
                                                       class="block mt-1 w-full"
                                                       name="monthly_payment"
-                                                      value="{{ old('monthly_payment') ?? '' }}" />
+                                                      value="{{ $mortgage->monthly_payment }}"
+                                                      disabled
+                                        />
 
                                         <x-input-error :messages="$errors->get('monthly_payment')" class="mt-2" />
 
@@ -57,7 +56,7 @@
 
                                         <select name="property_mortgage_rate_type_id" id="" class="input-control">
                                             @foreach( $mortgage_types as $type )
-                                                <option value="{{ $type->id }}">
+                                                <option value="{{ $type->id }}" @if( $mortgage->type->id == $type->id ) selected="selected" @endif  >
                                                     {{ $type->name }}
                                                 </option>
                                             @endforeach
@@ -72,7 +71,7 @@
                                         <x-text-input id="interest_rate"
                                                       class="block mt-1 w-full"
                                                       name="interest_rate"
-                                                      value="" />
+                                                      value="{{ $mortgage->interest_rate }}" />
 
                                         <x-input-error :messages="$errors->get('interest_rate')" class="mt-2" />
 
@@ -85,7 +84,7 @@
                                         <x-text-input id="term_length"
                                                       class="block mt-1 w-full"
                                                       name="term_length"
-                                                      value="" />
+                                                      value="{{ $mortgage->term_length }}" />
 
                                         <x-input-error :messages="$errors->get('term_length')" class="mt-2" />
 
@@ -101,7 +100,7 @@
                                                       type="date"
                                                       class="block mt-1 w-full"
                                                       name="start_date"
-                                                      value="" />
+                                                      value="{{ $mortgage->start_date }}" />
 
                                         <x-input-error :messages="$errors->get('start_date')" class="mt-2" />
 
@@ -109,19 +108,43 @@
 
                                 </div>
 
-                                <x-primary-button>
-                                    Update
-                                </x-primary-button>
-
-                            </form>
 
                         </div>
                     </div>
                 </div>
 
                 <div class="">
+                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 text-gray-900">
 
+                            <h2>Files</h2>
 
+                            <div class="w-full">
+
+                                @if( !is_null( $property_survey ) )
+
+                                    <a href="{{ $property_survey->getUrl() }}" class="block mb-4">
+                                        Download Property Survey
+                                    </a>
+
+                                @endif
+
+                            </div>
+
+                            <div class="w-full">
+
+                                @if ( !is_null( $mortgage_contract ) )
+
+                                    <a href="{{ $mortgage_contract->getUrl() }}" class="block mb-4">
+                                        Download Mortgage Contract
+                                    </a>
+
+                                @endif
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
             </div>

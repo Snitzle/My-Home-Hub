@@ -128,7 +128,7 @@
 
                             <div class="w-full">
 
-                                @if ( is_null( $property_survey ))
+                                @if ( is_null( $property_survey ) )
 
                                     <form action="{{ route('property.mortgage.survey.upload', [ $property , $mortgage ])  }}"
                                           method="POST"
@@ -158,24 +158,85 @@
                                     </form>
 
                                 @else
-                                    <a href="{{ $property_survey->getUrl() }}" class="block mb-4">
-                                        Download Property Survey
-                                    </a>
+
+                                    <div class="flex justify-between">
+
+                                        <a href="{{ $property_survey->getUrl() }}" class="block mb-4">
+                                            Download Property Survey
+                                        </a>
+
+                                        <form action="{{ route('property.mortgage.survey.delete', [ $property, $mortgage ] ) }}"
+                                              method="POST"
+                                              class="">
+
+                                            @csrf
+
+                                            <button type="submit">
+                                                <i class="fa-solid fa-trash text-red-500"></i>
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+
                                 @endif
 
                             </div>
 
                             <div class="w-full">
 
-                                <x-input-label for="mortgage_contract" :value="__('Mortgage Contract')" />
+                                @if ( is_null( $mortgage_contract ) )
 
-                                <x-text-input id="property_survey"
-                                              type="file"
-                                              class="block mt-1 w-full"
-                                              name="property_survey"
-                                              value="{{ $mortgage->property_survey }}" />
+                                    <form action="{{ route('property.mortgage.contract.upload', [ $property , $mortgage ])  }}"
+                                          method="POST"
+                                          enctype="multipart/form-data"
+                                    >
 
-                                <x-input-error :messages="$errors->get('property_survey')" class="mt-2" />
+                                        @csrf
+
+                                        <x-input-label for="mortgage_contract" :value="__('Mortgage Contract')" />
+
+                                        <x-text-input id="mortgage_contract"
+                                                      type="file"
+                                                      class="block mt-1 w-full"
+                                                      name="mortgage_contract"
+                                                      value="" />
+
+                                        <x-input-error :messages="$errors->get('property_survey')" class="mt-2" />
+
+                                        <div class="flex justify-end">
+
+                                            <x-primary-button>
+                                                submit
+                                            </x-primary-button>
+
+                                        </div>
+
+                                    </form>
+
+                                @else
+
+                                    <div class="flex justify-between">
+
+                                        <a href="{{ $mortgage_contract->getUrl() }}" class="block mb-4">
+                                            Download Mortgage Contract
+                                        </a>
+
+                                        <form action="{{ route('property.mortgage.contract.delete', [ $property, $mortgage ] ) }}"
+                                              method="POST"
+                                              class="">
+
+                                            @csrf
+
+                                            <button type="submit">
+                                                <i class="fa-solid fa-trash text-red-500"></i>
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+
+                                @endif
 
                             </div>
 

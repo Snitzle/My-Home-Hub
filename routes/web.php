@@ -47,7 +47,11 @@ Route::middleware(['auth', 'verified'] )->group(function () {
         'vehicle' => VehicleController::class
     ]);
 
-    Route::post('/property/{property}/mortgage/{mortgage}/upload-property-survey', [MortgageController::class, 'upload_property_survey' ])->name('property.mortgage.survey.upload');
+    Route::post('/property/{property}/mortgage/{mortgage}/upload-property-survey', [ MortgageController::class, 'upload_property_survey' ])->name('property.mortgage.survey.upload');
+    Route::post('/property/{property}/mortgage/{mortgage}/delete-property-survey', [ MortgageController::class, 'delete_property_survey' ])->name('property.mortgage.survey.delete');
+
+    Route::post('/property/{property}/mortgage/{mortgage}/upload-mortgage-contract', [ MortgageController::class, 'upload_mortgage_contract' ])->name('property.mortgage.contract.upload');
+    Route::post('/property/{property}/mortgage/{mortgage}/delete-mortgage-contract', [ MortgageController::class, 'delete_mortgage_contract' ])->name('property.mortgage.contract.delete');
 
 });
 

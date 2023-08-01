@@ -16,13 +16,16 @@ I've been made aware that Job is not a good name to use in a model because of th
 - Add Property Job start and end date to seeder
 - Define partial resources so only the routes I need are in use
 - Add reminder functionality to Property Jobs
-- Refactor jobs as Tasks
+- Refactor jobs as Work
 - Refactor Inputs to use built in Breeze components ( Is this actually better? )
 - Hash everything so I can't see private details in the database
 - Add Logic to process prices. Decide on a definite set of rules for input
 - Make it so that you can see all previous Mortgages applies to a house. Refactor the model. Add active to the migration
 - Add a Mortgage Seeder
-
+- Add logic to delete Mortgage Files
+- Fix validation on the property edit
+- Add styling to form errors
+- Add filenames to mortgage files
 
 ### To Create
 
