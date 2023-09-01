@@ -44,7 +44,7 @@
 
                         </div>
 
-                        <table class="w-full">
+                        <table class="w-full property-table">
                             <tbody>
                                 <tr>
                                     <td class="font-bold">Property Type</td>
@@ -77,7 +77,7 @@
 
                         <h2>Address</h2>
 
-                        <table class="w-full">
+                        <table class="w-full property-table">
                             <tbody>
                                 @if( $property->address->alias )
                                 <tr>
@@ -225,9 +225,26 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
                     <div class="p-6 text-gray-900">
 
-                        <h2>Boiler</h2>
+                        <h2 class="flex justify-between">
+                            Boiler
+                            <small>
+                                @if( is_null( $boiler ) )
+                                    <a href="{{ route('property.boiler.create', $property ) }}">Add</a>
+                                @else
+                                    <a href="{{ route('property.boiler.index', $property ) }}">View</a>
+                                @endif
+                            </small>
+                        </h2>
 
-                        <p>Put boiler stats here</p>
+                        @if( is_null( $boiler ) )
+                            <p class="mb-0">
+                                No boiler assigned to this property
+                            </p>
+                        @else
+                            <p class="mb-0">
+                                Next service date: ADD NEXT SERVICE DATE
+                            </p>
+                        @endif
 
                     </div>
                 </div>
@@ -235,9 +252,30 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
 
-                        <h2>Bin Days</h2>
+                        <h2 class="flex justify-between">
+                            Bin Days
+                             @if( count( $property->bins ) > 0 )
+                                 <small>
+                                    <a href="{{ route('property.bin.index', $property->id ) }}">
+                                        View
+                                    </a>
+                                 </small>
+                             @else
+                                 <small>
+                                    <a href="{{ route( 'property.bin.create', $property->id ) }}">
+                                        Add
+                                    </a>
+                                 </small>
+                             @endif
+                        </h2>
 
-                        <p>Put bin day information here</p>
+                        @if( count( $property->bins ) > 0 )
+
+                            {{-- Bin day logic here --}}
+
+                        @else
+                            <p>Please add your properties bin information</p>
+                        @endif
 
                     </div>
                 </div>

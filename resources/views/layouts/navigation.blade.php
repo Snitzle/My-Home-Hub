@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <h3>My Home Hub</h3>
+{{--                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />--}}
                     </a>
                 </div>
 
@@ -19,8 +20,15 @@
 
                 <!-- Add reminder links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('reminders')" :active="request()->routeIs('reminders')">
                         {{ __('Reminders') }}
+                    </x-nav-link>
+                </div>
+
+                <!-- Add reminder links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('reports')" :active="request()->routeIs('reports')">
+                        {{ __('Reports') }}
                     </x-nav-link>
                 </div>
             </div>

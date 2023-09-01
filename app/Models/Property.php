@@ -48,4 +48,8 @@ class Property extends Model
         return $this->hasMany( PropertyBill::class );
     }
 
+    public function bins () {
+        return $this->hasMany( Bin::class );
+    }
+
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Boiler;
 use App\Models\Property;
 use App\Models\PropertyType;
 use Illuminate\Http\Request;
@@ -46,7 +47,9 @@ class PropertyController extends Controller
 
         }
 
-        return view('property.show', compact('property', 'total_bill_cost' ) );
+        $boiler = Boiler::where('property_id', $property->id )->first();
+
+        return view('property.show', compact('property', 'total_bill_cost', 'boiler' ) );
     }
 
     /**
@@ -65,6 +68,20 @@ class PropertyController extends Controller
     public function update(Request $request, Property $property)
     {
 
+        if ( $request->has('price') ) {
+
+            // Make this a helper function
+            $price = str_replace(['£', ','], ['', ''], $request->input('price') );
+
+            // Convert to pennies
+            $price = intval( $price * 100 );
+
+            $request->merge([
+                'price' => $price
+            ]);
+
+        }
+
         $validated = $request->validate([
             'name' => 'string',
             'purchase_date' => 'date',
@@ -77,7 +94,7 @@ class PropertyController extends Controller
 
         $property->update( $validated );
 
-        return back();
+        return back()->withSuccess('Property Information Updated!');
 
     }
 

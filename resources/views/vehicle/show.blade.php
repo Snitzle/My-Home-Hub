@@ -128,7 +128,9 @@
 
                             <h2>Boiler</h2>
 
-                            <p>Put boiler stats here</p>
+                            @if( is_null( $boiler ) )
+                                No boiler assigned to this property
+                            @endif
 
                         </div>
                     </div>

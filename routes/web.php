@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\BinController;
+use App\Http\Controllers\BoilerController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\MortgageController;
 use App\Http\Controllers\ProfileController;
@@ -33,6 +35,18 @@ Route::middleware(['auth', 'verified'] )->group(function () {
 
     })->name('dashboard');
 
+    Route::get('/reports', function () {
+
+        return view('reports');
+
+    })->name('reports');
+
+    Route::get('/reminders', function () {
+
+        return view('reminders');
+
+    })->name('reminders');
+
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -46,6 +60,8 @@ Route::middleware(['auth', 'verified'] )->group(function () {
         'property.bill' => PropertyBillController::class,
         'property.job' => JobController::class,
         'property.job.comment' => PropertyJobCommentController::class,
+        'property.boiler' => BoilerController::class,
+        'property.bin' => BinController::class,
         'vehicle' => VehicleController::class
     ]);
 

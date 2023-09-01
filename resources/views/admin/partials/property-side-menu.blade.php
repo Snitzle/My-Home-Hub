@@ -6,27 +6,39 @@
             <h2>Menu</h2>
 
             <ul>
+
                 <li>
                     <a href="{{ route( 'property.job.index', $property->id ) }}">Jobs</a>
                 </li>
+
                 <li>
                     <a href="{{ route( 'property.bill.index', $property->id ) }}">Bills</a>
                 </li>
+
+                <li>
+                    <a href="{{ route( 'property.boiler.index', $property->id ) }}">Boiler</a>
+                </li>
+
                 <li>
                     <a href="{{ route( 'property.job.index', $property->id ) }}">Subscriptions</a>
                 </li>
+
                 <li>
-                    <a href="{{ route( 'property.job.index', $property->id ) }}">Boiler</a>
+                    <a href="{{ route( 'property.job.index', $property->id ) }}">Bin Days</a>
                 </li>
+
                 <li>
-                    <a href="{{ route( 'property.job.index', $property->id ) }}">Bin Daysz</a>
+                    <a href="{{ route( 'property.job.index', $property->id ) }}">Contents</a>
                 </li>
+
                 <li>
                     <a href="{{ route( 'property.job.index', $property->id ) }}">Files</a>
                 </li>
+
                 <li>
                     <a href="{{ route( 'property.job.index', $property->id ) }}">Options</a>
                 </li>
+
             </ul>
 
         </div>

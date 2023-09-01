@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BoilerCheck;
 use Illuminate\Http\Request;
 
-class BoilerCheckController extends Controller
+class BoilerServiceController extends Controller
 {
     /**
      * Display a listing of the resource.

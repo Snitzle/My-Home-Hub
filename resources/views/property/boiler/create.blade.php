@@ -26,7 +26,7 @@
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <div class="p-6 text-gray-900">
 
-                            <form action="{{ route( 'property.bill.store', $property->id ) }}" method="POST">
+                            <form action="{{ route( 'property.boiler.store', $property->id ) }}" method="POST">
 
                                 @csrf
 
@@ -36,12 +36,12 @@
 
                                     <div class="w-full">
 
-                                        <x-input-label for="title" :value="__('Title')" />
+                                        <x-input-label for="make" :value="__('Make')" />
 
                                         <x-text-input id="title"
                                                       class="block mt-1 w-full"
-                                                      name="monthly_payment"
-                                                      value="{{ old('title') ?? '' }}" />
+                                                      name="make"
+                                                      value="{{ old('make') ?? '' }}" />
 
                                         <x-input-error :messages="$errors->get('monthly_payment')" class="mt-2" />
 
@@ -49,52 +49,58 @@
 
                                     <div class="w-full">
 
-                                        <x-input-label for="price" :value="__('Price')" />
+                                        <x-input-label for="model" :value="__('Model')" />
 
-                                        <x-text-input id="price"
+                                        <x-text-input id="model"
                                                       class="block mt-1 w-full"
-                                                      name="price"
-                                                      value="{{ old('price') ?? '' }}" />
+                                                      name="model"
+                                                      value="{{ old('model') ?? '' }}" />
 
                                     </div>
 
                                     <div class="w-full">
 
-                                        <x-input-label for="interest_rate" :value="__('Interest Rate')" />
+                                        <x-input-label for="type" :value="__('Type')" />
 
-                                        <x-text-input id="interest_rate"
-                                                      class="block mt-1 w-full"
-                                                      name="interest_rate"
-                                                      value="" />
+                                        <select name="type" id="" class="input-control block mt-1 w-full">
 
-                                        <x-input-error :messages="$errors->get('interest_rate')" class="mt-2" />
+                                                <option value="0">
+                                                    Regular
+                                                </option>
 
-                                    </div>
+                                                <option value="0">
+                                                    Combi
+                                                </option>
 
-                                    <div class="w-full">
+                                        </select>
 
-                                        <x-input-label for="term_length" :value="__('Term Length')" />
-
-                                        <x-text-input id="term_length"
-                                                      class="block mt-1 w-full"
-                                                      name="term_length"
-                                                      value="" />
-
-                                        <x-input-error :messages="$errors->get('term_length')" class="mt-2" />
+                                        <x-input-error :messages="$errors->get('type')" class="mt-2" />
 
                                     </div>
-
-
 
                                     <div class="w-full ">
 
-                                        <x-input-label for="start_date" :value="__('Start Date')" />
+                                        <x-input-label for="install_date" :value="__('Install Date')" />
 
-                                        <x-text-input id="start_date"
+                                        <x-text-input id="install_date"
                                                       type="date"
                                                       class="block mt-1 w-full"
-                                                      name="start_date"
+                                                      name="install_date"
                                                       value="" />
+
+                                        <x-input-error :messages="$errors->get('install_date')" class="mt-2" />
+
+                                    </div>
+
+                                    <div class="w-full ">
+
+                                        <x-input-label for="active" :value="__('Active')" />
+
+                                        <input  type="checkbox"
+                                                id="active"
+                                                class="block mt-1 input-control__checkbox w-4"
+                                                name="active"
+                                                value="" />
 
                                         <x-input-error :messages="$errors->get('start_date')" class="mt-2" />
 
@@ -102,7 +108,7 @@
 
                                 </div>
 
-                                <x-primary-button>
+                                <x-primary-button class="mt-4">
                                     Create
                                 </x-primary-button>
 

@@ -28,6 +28,30 @@ I've been made aware that Job is not a good name to use in a model because of th
 - Add a Contents section where things that we own can be uploaded in even of fire for theft
 - Add logic to complete Jobs
 - Write reports for Rosh
+- Add a contents section where you can upload information about what you own 
+- Add an insurance section
+- Add a warranties section to the contents 
+- Misc section for rooms to store information about light bulb screw types and wattage 
+- Add a mode for Shared Domicile. not just renting, mortgage and leasing. Ask Jeni about this 
+- Fix not being able to update property information
+- If there are no services, show the service date for the same date as the install date for this year. If late make it red
+- Allow multiple users to have the same properties
+
+Boiler Services
+
+- Date
+- Just an image upload
+
+Bin Days
+
+- Add a Bin
+
+Bin 
+
+- Name
+- Colour
+- Pick up date 
+- How often does it recur
 
 ### To Create
 

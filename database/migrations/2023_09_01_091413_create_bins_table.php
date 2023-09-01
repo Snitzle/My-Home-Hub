@@ -12,14 +12,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('boilers', function (Blueprint $table) {
+        Schema::create('bins', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor( Property::class );
-            $table->string('make');
-            $table->smallInteger('type')->default(0); // 0 Regular, 1 Combi
-            $table->string('model')->nullable();
-            $table->date('install_date')->nullable();
-            $table->boolean('active')->default(0);
+            $table->string('name');
+            $table->smallInteger('collection_day');
+            $table->tinyText('colour')->nullable();
+            $table->tinyInteger('collection_frequency');
+            $table->date('last_collection_date')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('boilers');
+        Schema::dropIfExists('bins');
     }
 };

@@ -19,10 +19,16 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
         <div class="">
 
-            @if( $errors->any())
-                @foreach ( $errors->all() as $error)
-                    <div>{{ $error }}</div>
-                @endforeach
+            @include('property.partials.notifications')
+
+            @if( session('success') )
+                <div class="mb-4">
+                    <div class="bg-green-500 overflow-hidden shadow-sm sm:rounded-lg p-6">
+                        <p class="mb-0 font-bold text-white">
+                            {{ session('success') }}
+                        </p>
+                    </div>
+                </div>
             @endif
 
             <div class="grid grid-cols-2 gap-4">
@@ -68,10 +74,11 @@
 
                                         <x-input-label for="purchase_date" :value="__('Purchase Date')" />
 
-                                        <x-text-input id="purchase_date"
+                                        <x-text-input type="date"
+                                                      id="purchase_date"
                                                       class="block mt-1 w-full"
                                                       name="purchase_date"
-                                                      value="{{ $property->purchase_date->format('d/m/Y') }}" />
+                                                      value="{{ $property->purchase_date->format('Y-m-d') }}" />
 
                                         <x-input-error :messages="$errors->get('purchase_date')" class="mt-2" />
 
@@ -81,10 +88,11 @@
 
                                         <x-input-label for="move_in_date" :value="__('Move In Date')" />
 
-                                        <x-text-input id="move_in_date"
-                                                      class="block mt-1 w-full"
-                                                      name="move_in_date"
-                                                      value="{{ $property->move_in_date->format('d/m/Y') }}" />
+                                        <x-text-input   type="date"
+                                                        id="move_in_date"
+                                                        class="block mt-1 w-full"
+                                                        name="move_in_date"
+                                                        value="{{ $property->move_in_date->format('Y-m-d') }}" />
 
                                         <x-input-error :messages="$errors->get('move_in_date')" class="mt-2" />
 
@@ -168,7 +176,7 @@
 
                                 <div class="w-full mb-4">
 
-                                    <x-input-label for="address_1" :value="__('address_1')" />
+                                    <x-input-label for="address_1" :value="__('Address 1')" />
 
                                     <x-text-input id="address_1"
                                                   class="block mt-1 w-full"
@@ -181,7 +189,7 @@
 
                                 <div class="w-full mb-4">
 
-                                    <x-input-label for="address_2" :value="__('address_2')" />
+                                    <x-input-label for="address_2" :value="__('Address 2')" />
 
                                     <x-text-input id="address_2"
                                                   class="block mt-1 w-full"
@@ -194,7 +202,7 @@
 
                                 <div class="w-full mb-4">
 
-                                    <x-input-label for="address_3" :value="__('address_3')" />
+                                    <x-input-label for="address_3" :value="__('Address 3')" />
 
                                     <x-text-input id="address_3"
                                                   class="block mt-1 w-full"
