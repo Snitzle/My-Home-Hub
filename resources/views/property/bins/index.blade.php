@@ -6,7 +6,7 @@
                 {{ __('Bins') }}
             </h2>
 
-            <div class="">
+            <div class="flex justify-end">
 
                 <a href="{{ route('property.bin.create', $property->id ) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">
                     Add a Bin

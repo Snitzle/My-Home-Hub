@@ -51,4 +51,12 @@ class User extends Authenticatable
         return $this->hasMany(Vehicle::class);
     }
 
+    public function bins () {
+        return $this->hasMany( Bin::class );
+    }
+
+    public function reminders () {
+        return $this->hasMany( Reminder::class );
+    }
+
 }

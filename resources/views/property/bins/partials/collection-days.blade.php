@@ -4,7 +4,7 @@
 
     <option
         value="{{ $collection_day_index }}"
-        @if( $collection_day_index === $bin->collection_day ) selected @endif >
+        @if( isset( $bin ) && $collection_day_index === $bin->collection_day ) selected @endif >
 
             {{ $collection }}
 

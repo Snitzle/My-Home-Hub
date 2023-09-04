@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class );
             $table->foreignIdFor( PropertyType::class );
+            $table->tinyInteger('mode')->default(0); // Is it a mortgage, rent, co habitation, rented out as owner
             $table->string('name');
             $table->date('purchase_date')->nullable();
             $table->date('move_in_date')->nullable();
@@ -34,4 +35,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('properties');
     }
+
 };

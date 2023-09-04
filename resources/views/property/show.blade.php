@@ -272,9 +272,25 @@
                         @if( count( $property->bins ) > 0 )
 
                             {{-- Bin day logic here --}}
+                            <table class="w-full">
+                                @foreach( $property->bins as $bin )
+                                    <tr>
+                                        <td>
+                                            <span class="border-b border-b-2" style="border-bottom-color: {{ $bin->colour }}">
+                                                {{ $bin->name }}
+                                            </span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span class="border-b border-b-2" style="border-bottom-color: {{ $bin->colour }}">
+                                                {{ $bin->next_collection_day()->format('d/m/Y') }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
 
                         @else
-                            <p>Please add your properties bin information</p>
+                            <p>Please add your bin information</p>
                         @endif
 
                     </div>

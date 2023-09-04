@@ -38,9 +38,11 @@ class BinController extends Controller
             'property_id' => 'required|exists:properties,id',
             'name' => 'required|string',
             'collection_day' => 'required|integer|max:6',
-            'colour' => 'string',
+            'colour' => 'required|string',
             'collection_frequency' => 'required|integer|max:3',
-            'last_collection_date' => 'date'
+            'last_collected_at' => 'required|date',
+            'days_before_collection' => 'required|integer',
+            'reminder_frequency' => 'required|integer'
         ]);
 
         $bin = Bin::create( $validated );
@@ -80,7 +82,7 @@ class BinController extends Controller
             'collection_day' => 'required|integer|max:6',
             'colour' => 'string',
             'collection_frequency' => 'required|integer|max:3',
-            'last_collection_date' => 'date'
+            'last_collected_at' => 'date'
         ]);
 
         $bin->update( $validated );

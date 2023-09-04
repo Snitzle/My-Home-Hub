@@ -18,6 +18,15 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('more_frequent_reminders')->default(false);
+
+            // Conditional reminder options
+
+            // Typically work hours are 9 - 5. Not everyone works those hours though. would you like to be reminded in the day as well?
+            // Turning this off will help us save money
+            $table->boolean('remind_during_work_hours')->default(false );
+            $table->boolean('bin_day_reminders')->default(true );
+            $table->boolean('boiler_service_reminders')->default(true );
+
             $table->rememberToken();
             $table->timestamps();
         });

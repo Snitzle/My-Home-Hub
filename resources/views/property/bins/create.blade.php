@@ -39,7 +39,7 @@
                                         <x-input-label for="name" :value="__('Name')" />
 
                                         <x-text-input id="name"
-                                                      class="block mt-1 w-full"
+                                                      class="block mt-1 h-12"
                                                       name="name"
                                                       value="{{ old('name') ?? '' }}" />
 
@@ -55,33 +55,7 @@
                                                 class="block mt-1 w-full input-control"
                                                 name="collection_day">
 
-                                            <option value="0">
-                                                Monday
-                                            </option>
-
-                                            <option value="1">
-                                                Tuesday
-                                            </option>
-
-                                            <option value="2">
-                                                Wednesday
-                                            </option>
-
-                                            <option value="3">
-                                                Thursday
-                                            </option>
-
-                                            <option value="4">
-                                                Friday
-                                            </option>
-
-                                            <option value="6">
-                                                Saturday
-                                            </option>
-
-                                            <option value="7">
-                                                Sunday
-                                            </option>
+                                                @include('property.bins.partials.collection-days')
 
                                         </select>
 
@@ -93,9 +67,9 @@
 
                                         <x-text-input id="colour"
                                                       type="color"
-                                                      class="block mt-1"
+                                                      class="block mt-1 h-12"
                                                       name="colour"
-                                                      value="{{ old('colour') }}" />
+                                                      value="{{ old('colour') ?? '' }}" />
 
                                         <x-input-error :messages="$errors->get('type')" class="mt-2" />
 
@@ -109,21 +83,8 @@
                                                 class="block mt-1 w-full input-control"
                                                 name="collection_frequency">
 
-                                            <option value="0">
-                                                Twice a Week
-                                            </option>
+                                                @include('property.bins.partials.collection-frequency')
 
-                                            <option value="1">
-                                                Weekly
-                                            </option>
-
-                                            <option value="2">
-                                                Once every two weeks
-                                            </option>
-
-                                            <option value="3">
-                                                Monthly
-                                            </option>
 
                                         </select>
 
@@ -133,15 +94,58 @@
 
                                     <div class="w-full">
 
-                                        <x-input-label for="last_collection_date" :value="__('Last Collection Date')" />
+                                        <x-input-label for="last_collected_at" :value="__('Last Collection Date')" />
 
-                                        <x-text-input id="last_collection_date"
+                                        <x-text-input id="last_collected_at"
                                                       type="date"
                                                       class="block mt-1"
-                                                      name="last_collection_date"
-                                                      value="{{ old('last_collection_date') ?? '' }}" />
+                                                      name="last_collected_at"
+                                                      value="{{ old('last_collected_at') ?? '' }}" />
 
-                                        <p><small>This is used to set the next collection date so that you are reminded on the correct days</small></p>
+                                        <p class="mb-4">
+                                            <small>This is used to set the next collection date so that you are reminded on the correct days</small>
+                                        </p>
+
+                                        <x-input-error :messages="$errors->get('type')" class="mt-2" />
+
+                                    </div>
+
+                                    <div class="w-full">
+
+                                        <x-input-label for="remind_days_before_collection" :value="__('Days Before Collection')" />
+
+                                        <select name="remind_days_before_collection" 
+                                                id="remind_days_before_collection"
+                                                class="block mt-1 w-full input-control">
+
+                                                <option value="0">On the day</option>
+                                                <option value="1">One day before</option>
+                                                <option value="2">Two days before</option>
+
+                                        </select>
+
+                                        <p class="mb-4">
+                                            <small>How many days before bin day would you like the reminders to start</small>
+                                        </p>
+
+                                        <x-input-error :messages="$errors->get('type')" class="mt-2" />
+
+                                    </div>
+
+                                    <div class="w-full">
+
+                                        <x-input-label for="reminder_frequency" :value="__('Reminder Frequency')" />
+
+                                        <select id="collection_frequency"
+                                                class="block mt-1 w-full input-control"
+                                                name="collection_frequency">
+
+                                                @include('property.bins.partials.reminder-frequency')
+
+
+                                        </select>
+
+                                        <p><small>How often do you want to be reminded? We will remind you in the morning before work and the evening after work until bed time.</small></p>
 
                                         <x-input-error :messages="$errors->get('type')" class="mt-2" />
 

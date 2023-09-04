@@ -4,7 +4,7 @@
 
     <option
         value="{{ $collection_frequency_index }}"
-        @if( $collection_frequency_index === $bin->collection_frequency ) selected @endif >
+        @if( isset( $bin ) && $collection_frequency_index === $bin->collection_frequency ) selected @endif >
         {{ $collection }}
     </option>
 

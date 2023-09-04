@@ -36,6 +36,7 @@ I've been made aware that Job is not a good name to use in a model because of th
 - Fix not being able to update property information
 - If there are no services, show the service date for the same date as the install date for this year. If late make it red
 - Allow multiple users to have the same properties
+- Move reminder options to options page, to make it easier to find 
 
 Boiler Services
 

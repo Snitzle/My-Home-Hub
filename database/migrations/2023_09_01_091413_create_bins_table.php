@@ -19,7 +19,9 @@ return new class extends Migration
             $table->smallInteger('collection_day');
             $table->tinyText('colour')->nullable();
             $table->tinyInteger('collection_frequency');
-            $table->date('last_collection_date')->nullable();
+            $table->date('last_collected_at')->nullable();
+            $table->tinyInteger('reminder_frequency')->default(0);
+            $table->tinyInteger('remind_days_before_collection')->default(1); // How many days before collection do they want to be reminded
             $table->timestamps();
         });
     }

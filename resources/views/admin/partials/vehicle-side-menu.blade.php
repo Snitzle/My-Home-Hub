@@ -19,7 +19,7 @@
                     <a href="">Boiler</a>
                 </li>
                 <li>
-                    <a href="">Bin Daysz</a>
+                    <a href="">Bin Days</a>
                 </li>
                 <li>
                     <a href="">Files</a>
