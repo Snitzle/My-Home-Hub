@@ -62,7 +62,7 @@ Route::middleware(['auth', 'verified'] )->group(function () {
         'property.job.comment' => PropertyJobCommentController::class,
         'property.boiler' => BoilerController::class,
         'property.bin' => BinController::class,
-        'vehicle' => VehicleController::class
+        // 'vehicle' => VehicleController::class
     ]);
 
     Route::post('/property/{property}/mortgage/{mortgage}/upload-property-survey', [ MortgageController::class, 'upload_property_survey' ])->name('property.mortgage.survey.upload');

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Bin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// What do I need here for auth. Is it just the thing above
+
+Route::get('/bins', function () {
+    return Bin::all();
 });
