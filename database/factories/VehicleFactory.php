@@ -27,7 +27,7 @@ class VehicleFactory extends Factory
             'model' => $vehicle['model'],
             'fuel_type' => 'Petrol',
             'registration_number' => $this->faker->vehicleRegistration,
-            'purchase_date' =>  $this->faker->biasedNumberBetween(2008, date('Y')),
+            'purchase_date' =>  $this->faker->dateTimeBetween( "01/01/2008" , "01/01/" . date('Y') ),
             'sale_date' => null,
         ];
     }
