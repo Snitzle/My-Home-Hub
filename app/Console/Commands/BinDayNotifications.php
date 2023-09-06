@@ -56,7 +56,7 @@ class BinDayNotifications extends Command
                 }
 
                 $bin_reminder = Reminder::where( 'user_id', $user->id )->where('type', config('reminder.reminder_type')['bin'] )->first();
-//                $next_reminder =
+                
 
 
                 // if there is no last collected date, send a reminder to set a collected date

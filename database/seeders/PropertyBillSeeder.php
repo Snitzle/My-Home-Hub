@@ -19,13 +19,13 @@ class PropertyBillSeeder extends Seeder
             [
                 'property_id' => 1,
                 'title' => 'Gas',
-                'price' => 7000,
-                'description' => 'This is a bill description',
+                'price' => rand(1000, 12000),
+                'description' => 'This is the description for the gas bill',
                 'bill_date' => Carbon::now()->format('Y-m-d')
             ],[
                 'property_id' => 1,
                 'title' => 'Electric',
-                'price' => 4500,
+                'price' => rand( 500, 8000 ),
                 'description' => 'This is a bill description',
                 'bill_date' => Carbon::now()->format('Y-m-d')
             ],[

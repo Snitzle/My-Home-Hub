@@ -36,7 +36,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route( 'property.job.index', $property->id ) }}">Options</a>
+                    <a href="{{ route( 'property.options.show', $property->id ) }}">Options</a>
                 </li>
 
             </ul>

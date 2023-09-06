@@ -105,4 +105,15 @@ class PropertyController extends Controller
     {
         //
     }
+
+    public function show_property_options ( Request $request, Property $property ) {
+
+        return view('property.options.show', compact('property'));
+
+    }
+
+    public function save_property_options ( Request $request, Property $property ) {
+
+    }
+
 }

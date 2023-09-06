@@ -6,12 +6,10 @@ I've been made aware that Job is not a good name to use in a model because of th
 - Fill out Tenancy Agreements Migrations
 - Add purchase document uploads for House
 - Add Purchase comments
-- Add Snags list to jobs page
 - Attach images to jobs
 - Add Safety certificates to properties
 - Add a Content Editor to all textareas instead
 - Refactor views to be the correct hierarchy
-- Add Breadcrumbs
 - Add Start and end date to Property Jobs
 - Add Property Job start and end date to seeder
 - Define partial resources so only the routes I need are in use
@@ -22,8 +20,6 @@ I've been made aware that Job is not a good name to use in a model because of th
 - Add Logic to process prices. Decide on a definite set of rules for input
 - Make it so that you can see all previous Mortgages applies to a house. Refactor the model. Add active to the migration
 - Add a Mortgage Seeder
-- Fix validation on the property edit
-- Add styling to form errors
 - Add filenames to mortgage files
 - Add a Contents section where things that we own can be uploaded in even of fire for theft
 - Add logic to complete Jobs
@@ -42,17 +38,6 @@ Boiler Services
 
 - Date
 - Just an image upload
-
-Bin Days
-
-- Add a Bin
-
-Bin 
-
-- Name
-- Colour
-- Pick up date 
-- How often does it recur
 
 ### To Create
 

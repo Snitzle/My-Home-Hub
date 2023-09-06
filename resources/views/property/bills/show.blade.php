@@ -2,13 +2,13 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ $bill->name }}
+                {{ $bill->title }}
             </h2>
 
-            <div class="">
+            <div class="flex justify-end">
 
                 <a href="{{ route('property.bill.index', [$property->id] ) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">
-                    Back to Jobs List
+                    Back to Bills
                 </a>
 
                 <a href="{{ route('property.bill.edit', [$property->id, $bill->id] ) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">
@@ -18,10 +18,22 @@
 {{--                <a href="{{ route('property.bill.destroy', [$property->id, $bill->id] ) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">--}}
 {{--                    Complete Job--}}
 {{--                </a>--}}
+                <div class="">
 
-                <a href="{{ route('property.bill.destroy', [$property->id, $bill->id] ) }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                    Delete Job
-                </a>
+                    <form action="{{ route('property.bill.destroy', [ $property, $bill ]) }}" method="POST">
+
+                        @csrf
+                        @method('DELETE')
+
+                        <input type="hidden" name="property_id" value="{{ $property->id }}">
+                        <input type="hidden" name="propertybill_id" value="{{ $bill->id }}">
+                        
+                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                            Delete Bill
+                        </button>
+
+                    </form>
+                </div>
 
             </div>
         </div>

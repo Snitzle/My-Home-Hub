@@ -15,31 +15,39 @@ class BinSeeder extends Seeder
      */
     public function run(): void
     {
-        
+
+        $bins = [
+            [
+                'name' => 'Regular Waste',
+                'colour' => '#0c9702'
+            ],
+            [
+                'name' => 'Recycling Waste',
+                'colour' => '#1D78CD'
+            ],
+            [
+                'name' => 'Garden Waste',
+                'colour' => '#c75c1a'
+            ],
+        ];
+
         foreach ( Property::all() as $property ) { 
 
-            Bin::create([
-                'property_id' => $property->id,
-                'name' => 'Regular Waste',
-                'collection_day' => rand(0, 6),
-                'colour' => '#0c9702',
-                'collection_frequency' => rand(0, 1),
-                'last_collected_at' => Carbon::now()->subWeeks(1),
-                'reminder_frequency' => rand(0,1),
-                'remind_days_before_collection' => rand(1, 2)
-            ]);
+            for ( $i = 0; $i < 3; $i++ ) {
 
-            Bin::create([
-                'property_id' => $property->id,
-                'name' => 'Recycling Waste',
-                'collection_day' => rand(0, 6),
-                'colour' => '1D78CD',
-                'collection_frequency' => rand(0, 1),
-                'last_collected_at' => Carbon::now()->subWeeks(1),
-                'reminder_frequency' => rand(0,1),
-                'remind_days_before_collection' => rand(1, 2)
-            ]);
-            
+                Bin::create([
+                    'property_id' => $property->id,
+                    'name' => $bins[ $i ]['name'],
+                    'collection_day' => rand(0, 6),
+                    'colour' => $bins[ $i ]['colour'],
+                    'collection_frequency' => rand(1, 3),
+                    'last_collected_at' => Carbon::now()->subDays( rand( 0, 7 ) )->format('Y-m-d'),
+                    'reminder_frequency' => rand(0,1),
+                    'remind_days_before_collection' => rand( 1, 2 )
+                ]);    
+
+            }
+
         }
 
     }

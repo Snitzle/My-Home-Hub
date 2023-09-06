@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,6 +29,7 @@ class Bin extends Model
             case 0:
 
                 // Twice a week logic needs implementing
+                return Carbon::now();
 
                 break;
 

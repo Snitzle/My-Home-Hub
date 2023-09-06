@@ -71,6 +71,9 @@ Route::middleware(['auth', 'verified'] )->group(function () {
     Route::post('/property/{property}/mortgage/{mortgage}/upload-mortgage-contract', [ MortgageController::class, 'upload_mortgage_contract' ])->name('property.mortgage.contract.upload');
     Route::post('/property/{property}/mortgage/{mortgage}/delete-mortgage-contract', [ MortgageController::class, 'delete_mortgage_contract' ])->name('property.mortgage.contract.delete');
 
+    Route::get('/property/{property}/options', [ PropertyController::class, 'show_property_options' ])->name('property.options.show');
+    Route::patch('/property/{property}/options', [ PropertyController::class, 'save_property_options' ])->name('property.options.update');
+
 });
 
 require __DIR__.'/auth.php';

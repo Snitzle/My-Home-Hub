@@ -5,17 +5,7 @@
             @include('property.partials.title')
 
             <div class="">
-                @if ( is_null( $property->mortgage ) )
-                    <a href="{{ route('property.mortgage.create', $property ) }}"
-                       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4">
-                        Add Mortgage
-                    </a>
-                @endif
-
-                <a href="{{ route('property.edit', $property->id ) }}"
-                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Update
-                </a>
+                {{-- space for buttons  --}}
 
             </div>
         </div>
@@ -180,8 +170,15 @@
                         @else
 
                             <h2 class="flex items-center justify-between">
-                                Add a Mortgage
+                                Mortgage
+                                <small>
+                                    <a href="{{ route('property.mortgage.create', $property ) }}">Add</a>
+                                </small>
                             </h2>
+
+                            <p>
+                                Please add mortgage information
+                            </p>
 
                         @endif
 

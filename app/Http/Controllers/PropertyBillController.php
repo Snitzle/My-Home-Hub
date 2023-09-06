@@ -68,8 +68,17 @@ class PropertyBillController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PropertyBill $propertyBill)
+    public function destroy( Request $request, Property $property, PropertyBill $bill )
     {
-        //
+        
+        // Add in guard for whether you own the bill
+        if ( auth()->user()->id !== $property->user_id ) {
+            return back()->withError('Can\'t delete bill for property you don\'t own');
+        }
+
+        $deleted = $bill->delete();
+
+        return response()->redirectToRoute('property.bill.index', [ $property ])->withSuccess('Bill Deleted!');
+
     }
 }

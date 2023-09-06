@@ -18,11 +18,13 @@ class PropertySeeder extends Seeder
 
         $faker = Factory::create();
 
-        for ( $i = 1; $i < 6; $i++ ) {
+        $home_titles = ['Primary Home', 'Holiday Home', 'Rental Property'];
+
+        for ( $i = 0; $i < 3; $i++ ) {
 
             $property_data = [
                 'property_type_id' => random_int( 1, PropertyType::count() ),
-                'name' => $faker->name,
+                'name' => $home_titles[$i],
                 'purchase_date' => $faker->date,
                 'move_in_date' => $faker->date,
                 'price' => $faker->numberBetween( 3000000, 200000000 ),
@@ -35,7 +37,7 @@ class PropertySeeder extends Seeder
             $address_data = [
                 'alias' => $faker->name,
                 'company' => $faker->company,
-                'address_1' => $faker->numberBetween( 0, 400 ) . $faker->streetName,
+                'address_1' => $faker->numberBetween( 0, 400 ) . " " . $faker->streetName,
                 'address_2' => '',
                 'address_3' => '',
                 'town' => $faker->city,

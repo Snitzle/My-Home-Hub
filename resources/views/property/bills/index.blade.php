@@ -24,6 +24,8 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
+            @include('property.partials.notifications')
+
             <div class="grid grid-cols-[2fr,1fr] gap-4">
 
                 <div class="">

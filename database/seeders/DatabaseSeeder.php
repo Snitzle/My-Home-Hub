@@ -27,7 +27,8 @@ class DatabaseSeeder extends Seeder
             PropertySeeder::class,
             VehicleSeeder::class,
             JobSeeder::class,
-            PropertyBillSeeder::class
+            PropertyBillSeeder::class,
+            BinSeeder::class
         ]);
 
 
