@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\Country;
 use App\Models\Property;
 use Illuminate\Http\Request;
 
@@ -43,9 +44,13 @@ class AddressController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Address $address)
+    public function edit(Request $request, Property $property )
     {
-        //
+
+        $countries = Country::all(['id', 'name', 'alpha_2']);
+
+        return view('property.address.edit', compact('property', 'countries') );
+
     }
 
     /**

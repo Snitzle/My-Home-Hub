@@ -16,4 +16,8 @@ class Address extends Model
         return $this->belongsTo( Property::class );
     }
 
+    public function country () {
+        return $this->belongsTo( Country::class );
+    }
+
 }

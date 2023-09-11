@@ -18,17 +18,23 @@ class DatabaseSeeder extends Seeder
          User::factory()->create([
              'name' => 'Admin',
              'email' => 'admin@myhomehub.com',
-             'password' => Hash::make('password')
+             'password' => Hash::make('password'),
+             'bin_day_reminders' => 1,
          ]);
 
+         if ( env('APP_ENV') == 'local' ) {
+            User::factory(500)->create();
+         }
+
         $this->call([
+            CountrySeeder::class,
             PropertyMortgageRateTypeSeeder::class,
             PropertyTypeSeeder::class,
             PropertySeeder::class,
             VehicleSeeder::class,
             JobSeeder::class,
             PropertyBillSeeder::class,
-            BinSeeder::class
+            BinSeeder::class,
         ]);
 
 

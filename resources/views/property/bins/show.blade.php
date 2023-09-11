@@ -97,7 +97,7 @@
                                               type="date"
                                               class="block mt-1"
                                               name="last_collected_at"
-                                              value="{{ $bin->last_collected_at }}" disabled />
+                                              value="{{ $bin->last_collected_at->format('Y-m-d') }}" disabled />
 
                                 <p class="mb-4"><small>This is used to set the next collection date so that you are reminded on the correct days</small></p>
 

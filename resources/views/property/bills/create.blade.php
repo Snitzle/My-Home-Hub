@@ -60,43 +60,28 @@
 
                                     <div class="w-full">
 
-                                        <x-input-label for="interest_rate" :value="__('Interest Rate')" />
+                                        <x-input-label for="description" :value="__('Description')" />
 
-                                        <x-text-input id="interest_rate"
+                                        <x-text-input id="description"
                                                       class="block mt-1 w-full"
-                                                      name="interest_rate"
+                                                      name="description"
                                                       value="" />
 
-                                        <x-input-error :messages="$errors->get('interest_rate')" class="mt-2" />
+                                        <x-input-error :messages="$errors->get('description')" class="mt-2" />
 
                                     </div>
-
-                                    <div class="w-full">
-
-                                        <x-input-label for="term_length" :value="__('Term Length')" />
-
-                                        <x-text-input id="term_length"
-                                                      class="block mt-1 w-full"
-                                                      name="term_length"
-                                                      value="" />
-
-                                        <x-input-error :messages="$errors->get('term_length')" class="mt-2" />
-
-                                    </div>
-
-
 
                                     <div class="w-full ">
 
-                                        <x-input-label for="start_date" :value="__('Start Date')" />
+                                        <x-input-label for="bill_day" :value="__('Bill Day')" />
 
-                                        <x-text-input id="start_date"
-                                                      type="date"
+                                        <x-text-input id="bill_date"
+                                                      type="number"
                                                       class="block mt-1 w-full"
-                                                      name="start_date"
+                                                      name="bill_date"
                                                       value="" />
 
-                                        <x-input-error :messages="$errors->get('start_date')" class="mt-2" />
+                                        <x-input-error :messages="$errors->get('bill_date')" class="mt-2" />
 
                                     </div>
 

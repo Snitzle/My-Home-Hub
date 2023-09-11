@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyBillController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\PropertyJobCommentController;
+use App\Http\Controllers\RoomController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 
@@ -62,7 +63,9 @@ Route::middleware(['auth', 'verified'] )->group(function () {
         'property.job.comment' => PropertyJobCommentController::class,
         'property.boiler' => BoilerController::class,
         'property.bin' => BinController::class,
-        'vehicle' => VehicleController::class
+        'vehicle' => VehicleController::class,
+        'property.room' => RoomController::class,
+        'property.subscription' => SubscriptionController::class,
     ]);
 
     Route::post('/property/{property}/mortgage/{mortgage}/upload-property-survey', [ MortgageController::class, 'upload_property_survey' ])->name('property.mortgage.survey.upload');

@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\PropertyBill;
 use Carbon\Carbon;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Property;
+use App\Models\PropertyBill;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class PropertyBillSeeder extends Seeder
 {
@@ -15,33 +16,36 @@ class PropertyBillSeeder extends Seeder
     public function run(): void
     {
 
-        $bills = [
-            [
-                'property_id' => 1,
-                'title' => 'Gas',
-                'price' => rand(1000, 12000),
-                'description' => 'This is the description for the gas bill',
-                'bill_date' => Carbon::now()->format('Y-m-d')
-            ],[
-                'property_id' => 1,
-                'title' => 'Electric',
-                'price' => rand( 500, 8000 ),
-                'description' => 'This is a bill description',
-                'bill_date' => Carbon::now()->format('Y-m-d')
-            ],[
-                'property_id' => 1,
-                'title' => 'Council Tax',
-                'price' => 15000,
-                'description' => 'This is a bill description',
-                'bill_date' => Carbon::now()->format('Y-m-d')
-            ],
-        ];
+        foreach ( Property::all() as $property ) { 
 
+            $bills = [
+                [
+                    'property_id' => $property->id,
+                    'title' => 'Gas',
+                    'price' => rand(1000, 12000),
+                    'description' => 'This is the description for the gas bill',
+                    'bill_date' => Carbon::now()
+                ],[
+                    'property_id' => $property->id,
+                    'title' => 'Electric',
+                    'price' => rand( 500, 8000 ),
+                    'description' => 'This is a bill description',
+                    'bill_date' => Carbon::now()
+                ],[
+                    'property_id' => $property->id,
+                    'title' => 'Council Tax',
+                    'price' => 15000,
+                    'description' => 'This is a bill description',
+                    'bill_date' => Carbon::now()
+                ],
+            ];
 
-        foreach ( $bills as $bill ) {
+            foreach ( $bills as $bill ) {
 
-            PropertyBill::create( $bill );
+                PropertyBill::create( $bill );
 
+            }
+            
         }
 
     }

@@ -65,7 +65,22 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
 
-                        <h2>Address</h2>
+                        <h2 class="flex justify-between">
+                            Address
+                            @if( !is_null( $property->address ) ) 
+                                <a href=" {{ route('property.address.edit', [ $property, $property->address ] ) }} ">
+                                    <small>
+                                        Edit
+                                    </small>
+                                </a>
+                            @else
+                                <a href="{{ route('property.address.create', [ $property ] ) }}">
+                                    <small>
+                                        Add
+                                    </small>
+                                </a>
+                            @endif
+                        </h2>
 
                         <table class="w-full property-table">
                             <tbody>
@@ -128,7 +143,7 @@
                                 @if( $property->address->country )
                                     <tr>
                                         <td class="font-bold">Country</td>
-                                        <td>{{ $property->address->country }}</td>
+                                        <td>{{ $property->address->country->name }}</td>
                                     </tr>
                                 @endif
 
@@ -212,9 +227,24 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
                     <div class="p-6 text-gray-900">
 
-                        <h2>Subscriptions</h2>
-
-                        Loop through subscriptions here
+                        <h2 class="flex justify-between">
+                            Subscriptions
+                            
+                            @if( !is_null( $property->subscriptions ) && $property->subscriptions->count() == 0 )
+                                <a href="{{ route('property.subscription.index', $property ) }}">
+                                    <small>
+                                        View
+                                    </small>
+                                </a>
+                            @else
+                                <a href="{{ route('property.subscription.create', $property ) }}">
+                                    <small>
+                                        Add
+                                    </small>
+                                </a>
+                            @endif
+                            
+                        </h2>
 
                     </div>
                 </div>

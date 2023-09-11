@@ -33,13 +33,13 @@ class BinSeeder extends Seeder
 
         foreach ( Property::all() as $property ) { 
 
-            for ( $i = 0; $i < 3; $i++ ) {
+            foreach ( $bins as $bin ) {
 
                 Bin::create([
                     'property_id' => $property->id,
-                    'name' => $bins[ $i ]['name'],
+                    'name' => $bin['name'],
                     'collection_day' => rand(0, 6),
-                    'colour' => $bins[ $i ]['colour'],
+                    'colour' => $bin['colour'],
                     'collection_frequency' => rand(1, 3),
                     'last_collected_at' => Carbon::now()->subDays( rand( 0, 7 ) )->format('Y-m-d'),
                     'reminder_frequency' => rand(0,1),

@@ -28,6 +28,10 @@
                 </li>
 
                 <li>
+                    <a href="{{ route( 'property.room.index', $property->id ) }}">Rooms</a>
+                </li>
+
+                <li>
                     <a href="{{ route( 'property.job.index', $property->id ) }}">Contents</a>
                 </li>
 
