@@ -3,12 +3,32 @@
         
     <div class="max-w-7xl mx-auto p-6 lg:p-8">
 
-        <div class="text-center">
-            <h1 class="text-white text-5xl">Forget forgetting</h1>
-            <p class="text-white">My Home Hub remembers the important stuff for you</p>
+        <div class="text-center mt-48">
+            
+            <div class="mb-20">
+
+                <h1 class="text-white text-8xl uppercase font-bold mb-12">
+                    <span class="homepage__title">
+                        Forget forgetting
+                    </span>
+                </h1>
+
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-white text-2xl">My Home Hub remembers the important stuff for you. </p>
+                    <p class="text-white text-2xl">Home management to help nuerodivergents. Good for everyone.</p>
+                </div>
+
+            </div>
+
+            <div class="">
+                <button class="bg-white hover:bg-gray-100 text-gray-800  py-2 px-4 border border-gray-400 rounded shadow">
+                    View Demo
+                </button>
+            </div>
+
         </div>
 
-        <div class="mt-16">
+        <div class="mt-60">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                 <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                     <div>
@@ -100,9 +120,6 @@
                 </div>
             </div>
 
-            <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-            </div>
         </div>
     </div>
 

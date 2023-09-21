@@ -44,53 +44,48 @@ class BinDayNotifications extends Command
 
             }
 
-            $bins = $user->properties->bins;
+            Log::debug("$user_id: User has enabled bin day notifications");
 
-            if ( is_null( $bins ) || count( $bins ) === 0 ) {
+            foreach ( $user->properties as $property ) {
 
-                Log::debug( "$user_id: User has no bins" );
-                continue;
-
-            }
-
-            // check the users notification frequency for bins
-            foreach ( $bins as $bin) {
-
-                if ( $bin->next_collection_day->diffInDays( Carbon::now() ) > $bin->remind_days_before_collection ) {
-
-                    $bin_id = $bin->id;
-
-                    Log::debug( "$bin_id: Bin is not due for collection" );
-                    continue;
-
-                }
-
-                // Check for the last Bin reminder sent
-                $bin_reminder = Reminder::where( 'user_id', $user->id )->where('type', config('reminder.reminder_type')['bin'] )->first();
-
-                if ( $bin_reminder->isEmpty() ) {
-
-                    // Send a reminder
-                    $bin_reminder = Reminder::create([
-                        'user_id' => $user->id,
-                        'type' => config('reminder.reminder_type')['bin'],
-                        'last_reminded_at' => Carbon::now()
-                    ]);
-
-                    $bin_id = $bin->id;
-
-                    Log::debug( "$bin_id: Bin reminder created" );
-
-                }
-
-                // Send Bin Reminder using Laravel Notification here
-                // Notification::send( $user, new BinReminder( $bin ) );
-
-                Log::debug( "$bin_id: Bin reminder sent" );
+                foreach ( $property->bins as $bin ) {
                 
-            }
-                
+                    if ( $bin->next_collection_day()->diffInDays( Carbon::now() ) > $bin->remind_days_before_collection ) {
 
+                        $bin_id = $bin->id;
+    
+                        Log::debug( "$bin_id: Bin is not due for collection" );
+                        continue;
+    
+                    }
+    
+                    // Check for the last Bin reminder sent
+                    $bin_reminder = Reminder::where( 'user_id', $user->id )->where('type', config('reminder.reminder_type')['bin'] )->first();
+    
+                    if ( $bin_reminder->isEmpty() ) {
+    
+                        // Send a reminder
+                        $bin_reminder = Reminder::create([
+                            'user_id' => $user->id,
+                            'type' => config('reminder.reminder_type')['bin'],
+                            'last_reminded_at' => Carbon::now()
+                        ]);
+    
+                        $bin_id = $bin->id;
+    
+                        Log::debug( "$bin_id: Bin reminder created" );
+    
+                    }
+    
+                    // Send Bin Reminder using Laravel Notification here
+                    // Notification::send( $user, new BinReminder( $bin ) );
+    
+                    Log::debug( "$bin_id: Bin reminder sent" );
+                    
+                    
+                } 
+
+            }    
 
         }
 

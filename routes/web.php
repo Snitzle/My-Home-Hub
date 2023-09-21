@@ -65,7 +65,7 @@ Route::middleware(['auth', 'verified'] )->group(function () {
         'property.bin' => BinController::class,
         'vehicle' => VehicleController::class,
         'property.room' => RoomController::class,
-        'property.subscription' => SubscriptionController::class,
+        // 'property.subscription' => SubscriptionController::class,
     ]);
 
     Route::post('/property/{property}/mortgage/{mortgage}/upload-property-survey', [ MortgageController::class, 'upload_property_survey' ])->name('property.mortgage.survey.upload');

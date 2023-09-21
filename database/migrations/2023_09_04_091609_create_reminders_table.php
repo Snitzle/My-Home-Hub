@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('reminders', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor( User::class );
-            $table->tinyInteger( 'reminder_type');
+            $table->tinyInteger( 'type');
             $table->tinyText('reminder_frequency'); // Store this in the raw CRON format
             $table->dateTime('last_reminded_at');
             $table->timestamps();
