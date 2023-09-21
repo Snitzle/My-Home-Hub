@@ -29,6 +29,93 @@
                 {{-- </div> --}}
             </main>
 
+            <footer class="border-t border-gray-800">
+
+                <div class="max-w-7xl mx-auto">
+
+                    <div class="pt-12 pb-20">
+
+                        <div class="flex flex-wrap gap-20 text-white ">
+
+                            <div class="">
+                                <a href="/" class="flex justify-start items-center">
+                                    <img src="{{ asset('images/logo--white.png')  }}" class="w-8 mr-4" alt="">
+                                    <p class="font-bold">My Home Hub</p>
+                                </a>
+                            </div>
+
+                            <div class="font-bold mb-6">
+
+                                <p>Product</p>
+
+                            </div>
+
+                            <div class="">
+
+                                <p class="font-bold mb-6">Company</p>
+
+                                <ul>
+
+                                    <li class="mb-2">
+                                        <a href="">
+                                            About
+                                        </a>
+                                    </li>
+
+                                    <li class="mb-2">
+                                        <a href="">
+                                            Blog
+                                        </a>
+                                    </li>
+
+                                    <li class="mb-2">
+                                        <a href="">
+                                            Careers
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="">
+
+                                <p class="font-bold mb-6">Resources</p>
+
+                                <ul>
+
+                                    <li class="mb-2">
+                                        <a href="">
+                                            Docs
+                                        </a>
+                                    </li>
+
+                                    <li class="mb-2">
+                                        <a href="">
+                                            Accessability
+                                        </a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="flex justify-end items-center text-white pb-8">
+                        <a href="">
+                            <small>
+                                My Home Hub {{ Date('Y') }}
+                            </small>
+                        </a>
+                    </div>
+
+                </div>
+
+            </footer>
+
         </div>
     </body>
 </html>

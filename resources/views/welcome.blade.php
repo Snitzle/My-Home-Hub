@@ -3,32 +3,187 @@
         
     <div class="max-w-7xl mx-auto p-6 lg:p-8">
 
-        <div class="text-center mt-48">
+        <div class="text-center mt-48 mb-40">
             
             <div class="mb-20">
 
-                <h1 class="text-white text-8xl uppercase font-bold mb-12">
+                <h1 class="text-white text-8xl  font-bold mb-12">
                     <span class="homepage__title">
-                        Forget forgetting
+                        Forget Forgetting
                     </span>
                 </h1>
 
                 <div class="max-w-3xl mx-auto">
                     <p class="text-white text-2xl">My Home Hub remembers the important stuff for you. </p>
-                    <p class="text-white text-2xl">Home management to help nuerodivergents. Good for everyone.</p>
+                    <p class="text-white text-2xl">Home management to help nuerodivergents.</p>
+                    <p class="text-white text-2xl">
+                        Good for <strong> everyone. </strong>
+                    </p>
                 </div>
 
             </div>
 
             <div class="">
-                <button class="bg-white hover:bg-gray-100 text-gray-800  py-2 px-4 border border-gray-400 rounded shadow">
-                    View Demo
-                </button>
+                
+                <div class="max-w-sm mx-auto flex justify-center">
+                    <a class="bg-transparent text-white w-40 mr-8 py-2 px-4 border border-white hover:border-transparent rounded">
+                        Ease Your Mind
+                    </a>
+
+                    <a class="bg-white hover:bg-gray-100 w-40 text-black  py-2 px-4 border border-gray-400 rounded shadow">
+                        View Demo
+                    </a>
+                </div>
+
             </div>
 
         </div>
 
-        <div class="mt-60">
+        <div class="flex gap-8 flex-wrap text-white mb-40 ">
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg text-center border-gray-700 border-2">
+
+                <div class="p-6">
+
+                    <h3 class="text-white text-5xl mb-4">
+                        Reminders
+                    </h3>
+
+                    <div class="font-bold text-xl mb-2">
+                        <p>
+                            Insurance Renewals, Bin Days, Boiler Services and more.
+                        </p>
+                    </div>
+
+                    <p class="text-base">
+                        We remind you of the important home tasks. For those of us who forget more often, My Home Hub can be configured to send repeat reminders minutes, days, weeks or months in advance. 
+                    </p>
+                    
+                </div>
+
+            </div>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg text-center border-gray-700 border-2">
+
+                <div class="p-6">
+
+                    <h3 class="text-white text-5xl mb-4">
+                        Options
+                    </h3>
+
+                    <div class="font-bold text-xl mb-2">
+                        <p>
+                            Choose how you want to be reminded
+                        </p>
+                    </div>
+
+                    <p class="text-base">
+                        <p class="text-base">
+                            Email, SMS, WhatsApp, Telegram, Slack, Discord, Push Notifications and more. We do our best to work with people.
+                        </p>
+                    </p>
+                    
+                </div>
+
+            </div>
+
+            <div class="max-w-sm rounded overflow-hidden shadow-lg text-center border-gray-700 border-2">
+
+                <div class="p-6">
+
+                    <h3 class="text-white text-5xl mb-4">
+                        Respect
+                    </h3>
+
+                    <div class="font-bold text-xl mb-2">
+                        <p>
+                            When to cool off or when to turn up the heat
+                        </p>
+                    </div>
+
+                    
+                    <p class="text-base mb-4">
+                        Turn Notifications off during your work hours with granular control per reminder.
+                    </p>
+
+                    <p>
+                        Symtpoms intensified? My Home Hub can send you more reminders with gentler language to nudge you in the right direction.
+                    </p>
+                
+                    
+                </div>
+
+            </div>
+
+            {{-- <div class="max-w-sm rounded overflow-hidden shadow-lg text-center border-gray-700 border-2">
+
+                <div class="p-6">
+
+                    <h3 class="text-white text-5xl mb-4">
+                        Contents
+                    </h3>
+
+                    <div class="font-bold text-xl mb-2">
+                        <p>
+                            When to cool off or when to turn up the heat
+                        </p>
+                    </div>
+
+                    
+                    <p class="text-base mb-4">
+                        Turn Notifications off during your work hours with granular control per reminder.
+                    </p>
+
+                    <p>
+                        Symtpoms intensified? My Home Hub can send you more reminders with gentler language to nudge you in the right direction.
+                    </p>
+                
+                    
+                </div>
+
+            </div> --}}
+
+        </div>
+
+        <div class="text-white text-center mb-40">
+
+            <div class="mb-8">
+
+                <h2 class="text-6xl w-full text-center">
+                    That's just the start
+                </h2>
+
+                <p class="text-lg">My Home Hub offers a complete suite of management features</p>
+                
+            </div>
+
+            <p>Share access to your properties so you can manage with your significant others.</p>
+            <p>Track your the contents of your house with timestamped photos and receipt uploads.</p>
+            <p>Track work done on your house with workmans details, comments, snags, images and costs tracking.</p>
+            <p>Track bills and one offs, with historical data to show spending trends.</p>
+            <p>Store important information per room to help with surprises, such as which bulbs you need and where you keep your keys.</p>
+
+        </div>
+
+     <div class="text-white text-center mb-40">
+
+            <div class="mb-8">
+
+                <h2 class="text-6xl w-full text-center">
+                    More to come
+                </h2>
+
+                <p class="text-lg">When we said home managment, we meant it</p>
+                
+            </div>
+
+            <p>On the horizon are imrpovements and additions to property management, features to manage vehicles, pets and more</p>
+
+        </div>
+
+
+
+        {{-- <div class="mt-60">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                 <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                     <div>
@@ -106,21 +261,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
-            <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
-                <div class="flex items-center gap-4">
-                    <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                        </svg>
-                        Sponsor
-                    </a>
-                </div>
-            </div>
-
-        </div>
     </div>
 
 </x-frontend-layout>
