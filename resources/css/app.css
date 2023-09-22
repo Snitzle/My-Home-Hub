@@ -105,3 +105,83 @@ form label:last-child input {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.page__title {
+
+    @apply
+        text-white 
+        text-5xl 
+        md:text-8xl  
+        font-bold 
+        mb-12
+
+}
+
+.square__title {
+
+    @apply
+    
+        text-white 
+        text-3xl
+        lg:text-[2.5rem] 
+        mb-4
+
+}
+
+.footer__block {
+
+    @apply
+
+        w-full 
+        lg:w-auto
+        text-center 
+        lg:text-left
+        mb-4 
+        lg:mb-0
+
+}
+
+.feature-block__wrapper {
+
+    @apply
+
+        w-full 
+        lg:w-1/3 
+        justify-center 
+        flex
+
+}
+
+.feature__blocks {
+
+    @apply
+        max-w-[700px]
+        lg:max-w-xs
+        xl:max-w-sm 
+        rounded 
+        overflow-hidden 
+        shadow-lg 
+        text-center 
+        border-gray-700 
+        border-2
+
+}
+
+.feature-block__padding {
+
+    @apply
+        p-6
+        md:p-10
+        lg:p-8
+
+}
+
+.feature-list__wrapper {
+
+    @apply
+
+        max-w-lg
+        mx-auto
+        lg:max-w-[none]
+
+}

@@ -25,8 +25,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
+
+Route::get('/about', function () {
+    return view('under-construction');
+});
+
+Route::get('/roadmap', function () {
+    return view('under-construction');
+});
+
+Route::get('/blog', function () {
+    return view('under-construction');
+});
+
+Route::get('/careers', function () {
+    return view('under-construction');
+});
+
+Route::get('/docs', function () {
+    return view('under-construction');
+});
+
+Route::get('/accessability', function () {
+    return view('under-construction');
+});
+
+
+
 
 Route::middleware(['auth', 'verified'] )->group(function () {
 

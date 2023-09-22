@@ -33,44 +33,48 @@
 
                 <div class="max-w-7xl mx-auto">
 
-                    <div class="pt-12 pb-20">
+                    <div class="pt-12 pb-20 px-8">
 
-                        <div class="flex flex-wrap gap-20 text-white ">
+                        <div class="flex flex-wrap lg:gap-20 text-white ">
 
-                            <div class="">
-                                <a href="/" class="flex justify-start items-center">
+                            <div class="w-full lg:w-auto mb-10">
+                                <a href="/" class="flex justify-center lg:justify-start items-center">
                                     <img src="{{ asset('images/logo--white.png')  }}" class="w-8 mr-4" alt="">
                                     <p class="font-bold">My Home Hub</p>
                                 </a>
                             </div>
 
-                            <div class="font-bold mb-6">
+                            {{-- <div class="footer__block">
 
-                                <p>Product</p>
+                                <div class="font-bold mb-6">
 
-                            </div>
+                                    <p>Product</p>
 
-                            <div class="">
+                                </div>
+
+                            </div> --}}
+
+                            <div class="footer__block">
 
                                 <p class="font-bold mb-6">Company</p>
 
                                 <ul>
 
                                     <li class="mb-2">
-                                        <a href="">
+                                        <a href="/about">
                                             About
                                         </a>
                                     </li>
 
                                     <li class="mb-2">
-                                        <a href="">
+                                        <a href="/blog">
                                             Blog
                                         </a>
                                     </li>
 
                                     <li class="mb-2">
-                                        <a href="">
-                                            Careers
+                                        <a href="/contact">
+                                            Contact
                                         </a>
                                     </li>
 
@@ -78,20 +82,20 @@
 
                             </div>
 
-                            <div class="">
+                            <div class="footer__block">
 
                                 <p class="font-bold mb-6">Resources</p>
 
                                 <ul>
 
                                     <li class="mb-2">
-                                        <a href="">
+                                        <a href="/docs">
                                             Docs
                                         </a>
                                     </li>
 
                                     <li class="mb-2">
-                                        <a href="">
+                                        <a href="/accessability">
                                             Accessability
                                         </a>
                                     </li>
@@ -104,7 +108,7 @@
 
                     </div>
 
-                    <div class="flex justify-end items-center text-white pb-8">
+                    <div class="flex justify-center lg:justify-end items-center text-white pb-8">
                         <a href="">
                             <small>
                                 My Home Hub {{ Date('Y') }}
