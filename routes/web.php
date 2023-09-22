@@ -52,6 +52,10 @@ Route::get('/accessability', function () {
     return view('under-construction');
 });
 
+Route::get('/contact', function () {
+    return view('under-construction');
+});
+
 
 
 
