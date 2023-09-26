@@ -185,3 +185,15 @@ form label:last-child input {
         lg:max-w-[none]
 
 }
+
+.admin__panel {
+
+    @apply
+
+        bg-slate-800 
+        overflow-hidden 
+        shadow-sm 
+        sm:rounded-lg 
+        mb-4
+
+}

@@ -12,6 +12,7 @@ use App\Http\Controllers\PropertyJobCommentController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReminderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,12 +74,6 @@ Route::middleware(['auth', 'verified'] )->group(function () {
 
     })->name('reports');
 
-    Route::get('/reminders', function () {
-
-        return view('reminders');
-
-    })->name('reminders');
-
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -96,7 +91,8 @@ Route::middleware(['auth', 'verified'] )->group(function () {
         'property.bin' => BinController::class,
         'vehicle' => VehicleController::class,
         'property.room' => RoomController::class,
-        // 'property.subscription' => SubscriptionController::class,
+        'property.subscription' => SubscriptionController::class,
+        'reminder' => ReminderController::class,
     ]);
 
     Route::post('/property/{property}/mortgage/{mortgage}/upload-property-survey', [ MortgageController::class, 'upload_property_survey' ])->name('property.mortgage.survey.upload');

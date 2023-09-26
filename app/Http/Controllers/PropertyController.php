@@ -49,7 +49,7 @@ class PropertyController extends Controller
 
         $boiler = Boiler::where('property_id', $property->id )->first();
 
-        return view('property.show', compact('property', 'total_bill_cost', 'boiler' ) );
+        return view('property.show', compact( 'property', 'total_bill_cost', 'boiler' ) );
     }
 
     /**

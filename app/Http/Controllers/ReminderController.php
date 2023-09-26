@@ -10,9 +10,13 @@ class ReminderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( Request $request )
     {
-        //
+
+        $reminders = $request->user()->reminders;
+
+        return view('reminder.index', compact('reminders') );
+
     }
 
     /**
@@ -20,7 +24,7 @@ class ReminderController extends Controller
      */
     public function create()
     {
-        //
+        return view('reminder.create');
     }
 
     /**

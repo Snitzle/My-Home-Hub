@@ -43,7 +43,7 @@
                                                       name="name"
                                                       value="{{ old('name') ?? '' }}" />
 
-                                        <x-input-error :messages="$errors->get('monthly_payment')" class="mt-2" />
+                                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
 
                                     </div>
 
@@ -59,6 +59,8 @@
 
                                         </select>
 
+                                        <x-input-error :messages="$errors->get('collection_day')" class="mt-2" />
+
                                     </div>
 
                                     <div class="w-full">
@@ -71,7 +73,7 @@
                                                       name="colour"
                                                       value="{{ old('colour') ?? '' }}" />
 
-                                        <x-input-error :messages="$errors->get('type')" class="mt-2" />
+                                        <x-input-error :messages="$errors->get('colour')" class="mt-2" />
 
                                     </div>
 
@@ -128,7 +130,7 @@
                                             <small>How many days before bin day would you like the reminders to start</small>
                                         </p>
 
-                                        <x-input-error :messages="$errors->get('type')" class="mt-2" />
+                                        <x-input-error :messages="$errors->get('remind_days_before_collection')" class="mt-2" />
 
                                     </div>
 
@@ -147,7 +149,7 @@
 
                                         <p><small>How often do you want to be reminded? We will remind you in the morning before work and the evening after work until bed time.</small></p>
 
-                                        <x-input-error :messages="$errors->get('type')" class="mt-2" />
+                                        <x-input-error :messages="$errors->get('reminder_frequency')" class="mt-2" />
 
                                     </div>
 

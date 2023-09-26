@@ -13,12 +13,25 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reminders', function (Blueprint $table) {
+
             $table->id();
             $table->foreignIdFor( User::class );
+            
+
+            $table->string('name');
+            $table->text('notes');
+            $table->string('url');
+
+            $table->time('start_time');
+            $table->date('start_date');
+
             $table->tinyInteger( 'type');
+
             $table->tinyText('reminder_frequency'); // Store this in the raw CRON format
             $table->dateTime('last_reminded_at');
+
             $table->timestamps();
+
         });
     }
 

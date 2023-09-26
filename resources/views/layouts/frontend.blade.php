@@ -10,12 +10,9 @@
         <!-- Fonts -->
         <script src="https://kit.fontawesome.com/d757bdc3bf.js" crossorigin="anonymous"></script>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
-
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
     </head>
     <body class="antialiased">
         <div class="min-h-screen bg-black">
@@ -97,6 +94,12 @@
                                     <li class="mb-2">
                                         <a href="/accessability">
                                             Accessability
+                                        </a>
+                                    </li>
+
+                                    <li class="mb-2">
+                                        <a href="/attribution">
+                                            Attribution
                                         </a>
                                     </li>
 
