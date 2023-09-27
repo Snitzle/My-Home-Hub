@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        @include('frontend.partials.favicon')
+
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
@@ -15,6 +17,7 @@
         
     </head>
     <body class="antialiased">
+
         <div class="min-h-screen bg-black">
 
             @include('frontend.partials.navigation')

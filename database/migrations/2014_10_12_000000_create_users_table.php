@@ -23,9 +23,11 @@ return new class extends Migration
 
             // Typically work hours are 9 - 5. Not everyone works those hours though. would you like to be reminded in the day as well?
             // Turning this off will help us save money
-            $table->boolean('remind_during_work_hours')->default(false );
-            $table->boolean('bin_day_reminders')->default(true );
-            $table->boolean('boiler_service_reminders')->default(true );
+            $table->boolean('remind_during_work_hours')->default( false );
+            $table->boolean('bin_day_reminders')->default( true );
+            $table->boolean('boiler_service_reminders')->default( true );
+
+            $table->boolean('activated')->default( false );
 
             $table->rememberToken();
             $table->timestamps();

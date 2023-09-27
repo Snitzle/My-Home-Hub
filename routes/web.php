@@ -1,18 +1,19 @@
 <?php
 
-use App\Http\Controllers\AddressController;
-use App\Http\Controllers\BinController;
-use App\Http\Controllers\BoilerController;
-use App\Http\Controllers\JobController;
-use App\Http\Controllers\MortgageController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PropertyBillController;
-use App\Http\Controllers\PropertyController;
-use App\Http\Controllers\PropertyJobCommentController;
-use App\Http\Controllers\RoomController;
-use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BinController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\BoilerController;
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\MortgageController;
+use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\ReminderController;
+use App\Http\Controllers\PropertyBillController;
+use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\PropertyJobCommentController;
 
 /*
 |--------------------------------------------------------------------------
