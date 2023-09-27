@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ReminderCategory;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,18 +18,29 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor( User::class );
             
-
             $table->string('name');
-            $table->text('notes');
-            $table->string('url');
 
-            $table->time('start_time');
-            $table->date('start_date');
+            $table->text('notes')->nullable();
+            $table->string('url')->nullable();
 
-            $table->tinyInteger( 'type');
+            $table->time('file_name')->nullable();
+            $table->string('file_path')->nullable();
+            $table->uuid('file_uuid')->nullable();
+
+            $table->datetime('start_datetime')->default( now()->addDays(rand( 0, 30 ) ) );
+            
+            $table->tinyInteger('type');
+            $table->tinyInteger('status');
+            $table->foreignIdFor( ReminderCategory::class )->default(0);
+            // Tags are implemented as a many-to-many relationship
 
             $table->tinyText('reminder_frequency'); // Store this in the raw CRON format
+
+            $table->tinyInteger('priority')->default(0);
+
             $table->dateTime('last_reminded_at');
+
+            $table->boolean('completed');
 
             $table->timestamps();
 

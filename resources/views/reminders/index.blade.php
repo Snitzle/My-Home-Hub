@@ -28,21 +28,24 @@
 
             <div class="grid grid-cols-[2fr,1fr] gap-4">
 
-                <x-admin-panel>
+                <div class="">
                     @if( $reminders->count() > 0 )
                         @foreach( $reminders as $reminder )
-                            <a href="{{ route( 'property.job.show', $reminder ) }}">
-                                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-4">
-                                    <div class="p-6 text-gray-900">
-                                        {{ $reminder->title }}
-                                    </div>
+                            {{-- <a href="{{ route( 'property.job.show', $reminder ) }}"> --}}
+                                <div class="mb-4">
+                                    <x-admin-panel>
+                                        {{ $reminder->name }}
+
+                                        {{ $reminder->reminder_frequency }}
+                                    </x-admin-panel>
                                 </div>
-                            </a>
+                            {{-- </a> --}}
                         @endforeach
                     @else
                         <p>No Reminders</p>
                     @endif
-                </x-admin-panel>
+                </div>
+                
 
             </div>
 

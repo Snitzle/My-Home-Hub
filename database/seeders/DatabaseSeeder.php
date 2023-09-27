@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
          ]);
 
          if ( env('APP_ENV') == 'local' ) {
-            User::factory(500)->create();
+            User::factory(20)->create();
          }
 
         $this->call([
@@ -35,6 +35,8 @@ class DatabaseSeeder extends Seeder
             JobSeeder::class,
             PropertyBillSeeder::class,
             BinSeeder::class,
+            ReminderCategorySeeder::class,
+            ReminderSeeder::class
         ]);
 
 

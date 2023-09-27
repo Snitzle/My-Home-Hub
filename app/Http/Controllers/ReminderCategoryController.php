@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reminder;
+use App\Models\ReminderCategory;
 use Illuminate\Http\Request;
 
-class ReminderController extends Controller
+class ReminderCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index( Request $request )
+    public function index()
     {
-
-        $reminders = $request->user()->reminders;
-
-        return view('reminders.index', compact('reminders') );
-
+        //
     }
 
     /**
@@ -24,7 +20,7 @@ class ReminderController extends Controller
      */
     public function create()
     {
-        return view('reminder.create');
+        //
     }
 
     /**
@@ -38,7 +34,7 @@ class ReminderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Reminder $reminder)
+    public function show(ReminderCategory $reminderCategory)
     {
         //
     }
@@ -46,7 +42,7 @@ class ReminderController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reminder $reminder)
+    public function edit(ReminderCategory $reminderCategory)
     {
         //
     }
@@ -54,7 +50,7 @@ class ReminderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Reminder $reminder)
+    public function update(Request $request, ReminderCategory $reminderCategory)
     {
         //
     }
@@ -62,7 +58,7 @@ class ReminderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reminder $reminder)
+    public function destroy(ReminderCategory $reminderCategory)
     {
         //
     }

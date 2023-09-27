@@ -63,6 +63,8 @@
                                         {{-- How do I want the notification timing to be done? --}}
                                         {{-- 
 
+                                            - Implement Notifications for these through a CRON job that uses a queue and dispatches workers
+
                                             - I want to be able to set a time for the notification to be sent
                                             - I want to be able to set a day for the notification to be sent
 
