@@ -20,6 +20,10 @@ class Bin extends Model
         return $this->belongsTo( Property::class );
     }
 
+    public function reminder () {
+        return $this->belongsTo( Reminder::class );
+    }
+
     public function next_collection_day () {
 
         $next_collection_date = '';

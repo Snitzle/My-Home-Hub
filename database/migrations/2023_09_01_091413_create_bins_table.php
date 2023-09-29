@@ -1,9 +1,10 @@
 <?php
 
 use App\Models\Property;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Reminder;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -13,8 +14,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bins', function (Blueprint $table) {
+            
             $table->id();
             $table->foreignIdFor( Property::class );
+
+            // Each bin can have a reminder. It's stored on the bin to keep from polluting the reminders table.
+            $table->foreignIdFor( Reminder::class )->nullable();
+
             $table->string('name');
             $table->smallInteger('collection_day');
             $table->tinyText('colour')->nullable();
